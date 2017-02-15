@@ -1,0 +1,148 @@
+<? $this->headLink()->appendStylesheet('/css/ux2/homepage.css'); ?>
+<section id="homesection">
+
+    <a href="/membership-plans" id="bannerBox"></a>
+<!--Mon-85 reverted back the double credit banners--->
+    <!--<img id="homepage-matesrates-banner" src="/css/ux2/images/content-headers/homepage-header.png" onclick="window.location='www.48months.ie/matesrates/what-is'" />-->
+	<article data-role="main-portal-content-article">
+	
+		<div data-role="main-portal-home-campaign">
+				<div class="home-campaign">
+
+					<div class="home-campaign-info">
+						<h3 id="goConquer">Go Conquer!</h3>
+						
+						<!--<p id="goConquerText">48 is Ireland's first online mobile network for 18 to 22 year olds.<br/>Time to join the network with the best deal out there!</p>-->
+						<p id="goConquerText">48 is Ireland’s first online mobile network and the first with unlimited messaging on WhatsApp. So come and join us for the best deal out there.</p>
+
+						<a href="/free-sim" class="button"><span><strong>Order a free SIM</strong>to get started</span></a>
+						<a href="/activate-sim" class="button bn-grey"><span><strong>Activate a 48 SIM</strong>to become a member of 48</span></a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+		</div>
+
+
+		<div data-role="main-portal-home-memberships">
+
+			 <div class="home-joining">
+
+				<h3><a href="/how-to-join-48">Joining 48</a></h3>
+
+				<ul>
+
+					<li><a href="/free-sim"><span>1</span>Get a free SIM</a></li>
+					<li><a href="/unlock-your-phone"><span>2</span>Unlock your phone</a></li>
+					<li><a href="/activate-sim"><span>3</span>Activate your SIM</a></li>
+					<li><a href="/membership-plans"><span>4</span>Buy membership</a></li>
+				</ul>
+
+				<a href="/free-sim" class="button"><span><strong>Order a free SIM</strong>to get started</span></a>
+
+			</div>
+			
+			
+			 <div class="home-memberships memberships">
+<div id="mytc"><p><a style="color:#cbcbcb;" href="/boiler-plate/promotion-rules">T's & C's apply</a></p></div>
+         <br/>
+		 <br/>
+				<h1>48 Memberships</h1>
+				
+				<!--<p class="intro">At 48 we do things differently. You've got the control. Choose a membership that works for you. Pay up front for all the calls, texts and internet you want for the month. </p> -->
+				
+				<p class="intro">At 48 we do things differently. You’ve got the control.  So choose a membership that works for you. Pay up front each month for all the calls, text, data and unlimited WhatsApp messaging you want. </p>
+
+				<div class="membership-items-wrapper">
+					<a href="/membership-plans">
+					<div class="membership-items guido">
+						
+						<h3><span>All You Want</span></h3>
+						<h3 class="plantitle">The Guido</h3>
+						<h3 class="price">&euro;10</h3>						
+						
+						<ul>
+							
+							<li>300 mobile minutes<span>to any mobile network</span></li>
+							<li>All texts*<span>to any mobile network</span></li>
+							<li>1 GB internet<span><!-- --></span></li>
+							<li class="whatsapp">Unlimited messaging on WhatsApp</li>
+							<li class="last"><!-- --><span>+60 landline minutes</span></li>
+							<div class="button orderFreeSim" href="/free-sim"><span><strong>Order a free SIM</strong></span></div>
+						</ul>
+						
+					</div>
+
+					<div class="membership-items don">
+						<h3><span>The Ultimate Deal</span></h3>
+						<h3 class="plantitle">The Don</h3>
+						<h3 class="price">&euro;20</h3>
+						<ul>
+							<li>1,000 mobile minutes<span>to any mobile network</span></li>
+							<li>All texts*<span>to any mobile network</span></li>
+							<li>8 GB internet<span><!-- --></span></li>
+							<li class="whatsapp">Unlimited messaging on WhatsApp</li>
+							<li class="last"><!-- --><span>+60 landline minutes</span></li>
+							
+							<div class="button orderFreeSim" href="/free-sim"><span><strong>Order a free SIM</strong></span></div>
+						</ul>
+					</div>
+					</a>
+
+
+					<p class="info centered">*Fair usage policy applies to all texts. There are some other rules you should know too. <a href="/boiler-plate/terms">Find out more.</a>
+					
+		WhatsApp messaging is only available if you have data included (i.e. in your membership plan or if you buy a data add on). You will not be charged for data when you use the WhatsApp messaging service for messages via the app but if you use the voice features on WhatsApp you will incur data charges.
+	</p>
+				</div>
+
+
+			</div>
+
+		</div>
+
+		<div class="clearfix"></div>
+		
+		 <?= $this->partial('_partials/kickback-banner-homepage-sept-2014.phtml', $this); ?>
+
+
+		 <?= $this->partial('_partials/help-and-support-section.phtml', $this); ?>
+
+
+		 <!--
+		 <h2 class="centered"><span>48 Community</span></h2>
+
+		 <div data-role="main-portal-home-community">
+
+		 	<div class="community-cell">
+		 		<p>
+		 		In the Community you’ll find things 48 and things not so much 48. It’s a space where you <strong>can chat to others</strong>, <strong>ask for help</strong> and <strong>share your thoughts</strong>. Play nice!
+		 		</p>
+		 	</div>
+		    <div class="community-cell actions">
+		 		<a href="http://community.48months.ie/" class="button"><span><strong>Visit 48 Community</strong></span></a>
+		 	</div>
+
+		 </div>
+		-->
+
+
+	</article>
+
+</section>
+
+<?php $helper = $this->getHelper('ThirdPartyResource'); ?>
+
+<?php $helper->capture(); ?>
+
+
+<!-- Start of DoubleClick Floodlight Tag: Please do not remove
+Activity name of this tag: 48 HomePage
+URL of the webpage where the tag is expected to be placed: http://www.48months.ie/
+This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+Creation Date: 02/28/2013
+-->
+<iframe src="//3499391.fls.doubleclick.net/activityi;src=3499391;type=2013t456;cat=48hom511;ord=[Random Number]?" width="1"
+height="1" frameborder="0" style="display:none"></iframe>
+<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+
+<?php echo $helper->content(); ?>

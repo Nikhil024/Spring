@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd ">
+
+	<!-- Initialization for data source -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="bhavya" />
+		<property name="password" value="admin" />
+	</bean>
+
+	<!-- Definition for UserRegistration bean -->
+	<bean id="userDao" class="com.dao.InterfacesImpl.UserDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="questionsDao" class="com.dao.InterfacesImpl.QuestionsDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="subjectsDao" class="com.dao.InterfacesImpl.SubjectsDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="uequestionsDao" class="com.dao.InterfacesImpl.ueQuestionsDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+</beans>

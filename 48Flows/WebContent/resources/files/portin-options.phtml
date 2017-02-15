@@ -1,0 +1,34 @@
+<?php 
+	// form
+	$form   	= $this->form;
+	// helper
+	$helper 	= $this->getHelper('InlineForm');
+
+	//#wizard-number-management-form
+?>
+<?php $helper->openFormTag($form); ?>
+	<div class="details">
+		<ul data-role="portin-choice-tabs" class="clearfix">
+			<?php $element = $form->getElement('choice'); ?>
+			<?php foreach($element->getMultiOptions() as $key => $option) : ?>
+				<li id="portin-choice-tab___<?php echo $key; ?>" class="left <?php echo $element->getValue() == $option ? 'selected' : ''; ?>">
+					<?php echo $element->renderInputRadioOption($key, App_Form_Decorator_InputRadioOption::RENDER_MODE_INPUT); ?>
+					<?php echo $element->renderInputRadioOption($key, App_Form_Decorator_InputRadioOption::RENDER_MODE_LABEL); ?>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+		<?php foreach(array_keys($element->getMultiOptions()) as $option) : ?>
+			<div data-role="tab-content" id="tab-content___<?php echo $option; ?>">
+
+				<?php echo $this->partial(sprintf('activate-sim/forms/portin-%s.phtml', strval($option)), $this->getVars()); ?>
+
+			</div>
+		<?php endforeach; ?>
+	</div>
+<?php $helper->closeFormTag(); ?>
+
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		app.forms.portin_options.init(<?php echo sprintf("'#%s'", $form->getId()); ?>);
+	});
+</script>

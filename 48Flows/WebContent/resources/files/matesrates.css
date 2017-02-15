@@ -1,0 +1,606 @@
+/* ==============================================================
+Matesrates generic styles
+============================================================== */
+
+main[data-role="main-portal-content"] nav[data-role="main-portal-content-breadcumbs"] {
+	/* margin-bottom: 0px; */
+}
+
+main[data-role="main-portal-content"] article[data-role="main-portal-content-article"].ux_matesrates {
+    padding-bottom: 0px;
+}
+
+#ux_matesrates_what-is.has-banner main[data-role="main-portal-content"] nav[data-role="main-portal-content-breadcumbs"] {
+	margin-bottom: 220px;
+}
+
+#ux_matesrates_what-is main[data-role="main-portal-content"] article[data-role="main-portal-content-article"] {
+    padding-bottom: 10px;
+    text-align:center;
+}
+
+article[data-role="main-portal-content-article"] h1.kick-heading {
+    background: #1a1e24;
+    display: inline-block;
+    padding: 0 0 0 10px;
+    margin-bottom: 210px;
+}
+
+article[data-role="main-portal-content-article"] ul.matesrates-rules {
+    padding-left: 60px;
+    padding-right: 60px;
+    margin: 0 0 160px 0;
+}
+
+article[data-role="main-portal-content-article"] ul.matesrates-rules li {
+    display: block;
+    float: left;
+    width: 334px;
+    font-size: 16px;
+    color: #d0dfe6;
+    line-height: 1.5em;
+    padding: 0 0 0 36px;
+    margin: 0 0 25px 40px;
+    text-indent: 0;
+    background: url(img/sprite.png) no-repeat 0 -900px;
+}
+
+article[data-role="main-portal-content-article"] ul.matesrates-rules li:before {
+    display: none;
+}
+
+article[data-role="main-portal-content-article"] .matesrates-offer {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    padding-top: 190px;
+    background: url(img/matesrates-bg.png) no-repeat 50px 0;
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
+
+article[data-role="main-portal-content-article"] .matesrates-offer-2015 a {
+    text-align:center;
+}
+
+article[data-role="main-portal-content-article"] .matesrates-offer-2015 .startEarning {
+    display:inline-block;
+    /* width: 30%; */
+}
+
+
+article[data-role="main-portal-content-article"] .startEarning {
+    padding-bottom:30px;
+    /* width: 30%; */
+}
+
+article[data-role="main-portal-content-article"] .matesrates-offer .bn-kick {
+    position: absolute;
+    bottom: 0;
+    left: 365px;
+}
+
+section.matesrates-header article[data-role="main-portal-content-article"] {
+    padding: 0;
+}
+
+nav[data-role="matesrates-nav"] {
+    width: 100%;
+    border-bottom: 1px solid #8e9ca2;
+    margin-bottom: 65px;
+    overflow: hidden;
+}
+nav[data-role="matesrates-nav"] ul {
+    width: 960px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+nav[data-role="matesrates-nav"] ul li {
+    display: block;
+    float: left;
+    font-size: 16px;
+    color: #d0dfe6;
+    line-height: 1em;
+    padding:0;
+    text-indent: 0;
+    text-align: left;
+    margin-right: 4px;
+}
+nav[data-role="matesrates-nav"] ul li:before {
+    display: none;
+}
+nav[data-role="matesrates-nav"] ul li a {
+    display: block;
+    float: left;
+    width: 186px;
+    background: #eaf2f6;
+    color: #374044;
+    padding: 25px;
+    line-height: 1em;
+    text-decoration: none;
+    -webkit-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+    box-shadow: inset 0 -10px 10px -10px #000000;
+    -moz-box-shadow: inset 0 -10px 10px -10px #000000;
+    -webkit-box-shadow: inset 0 -10px 10px -10px #000000;
+}
+
+nav[data-role="matesrates-nav"] ul li a:hover,
+nav[data-role="matesrates-nav"] ul li.active a {
+    background: #8e9ca2;
+    color: #fff;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+
+}
+
+article[data-role="main-portal-content-article"].matesrates-action h4,
+article[data-role="main-portal-content-article"].matesrates-action h2,
+article[data-role="main-portal-content-article"].matesrates-action p {
+    width: 70%;
+}
+
+
+
+.ux_matesrates article[data-role="main-portal-content-article"] h2,
+.ux_matesrates article[data-role="main-portal-content-article"] h3,
+.ux_matesrates article[data-role="main-portal-content-article"] p.intro {
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+
+
+
+article[data-role="main-portal-content-article"].matesrates-action table {
+    margin-top: 28px;
+}
+article[data-role="main-portal-content-article"].matesrates-action p {
+    padding-bottom: 10px;
+}
+article[data-role="main-portal-content-article"].matesrates-action div[data-role="alert"].matesrates-joins h2,
+article[data-role="main-portal-content-article"].matesrates-action div[data-role="alert"].matesrates-joins p {
+    width: 100%;
+}
+
+
+article[data-role="main-portal-content-article"].matesrates-get-cash div[data-role="alert"].matesrates-joins p a,
+article[data-role="main-portal-content-article"].matesrates-action div[data-role="alert"].matesrates-joins p a {
+    color: #53af31;
+    font-weight: bolder;
+}
+
+.blog-banner {
+    margin-top: 25px;
+    display: block;
+    width: 900px;
+    padding: 20px 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.2);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    display: none;
+}
+#banner_preview {
+    margin-bottom: 20px;
+}
+
+article[data-role="main-portal-content-article"].matesrates-spread-success {
+    text-align: center;
+    margin-bottom: 100px;
+}
+article[data-role="main-portal-content-article"].matesrates-spread-success h1 {
+    font-size: 58px;
+    color: #fff;
+    padding-bottom: 0;
+}
+article[data-role="main-portal-content-article"].matesrates-spread-success .button {
+    margin: 0 auto;
+}
+
+article[data-role="main-portal-content-article"] .matesrates-offer .item a {
+    text-decoration: none;
+}
+article[data-role="main-portal-content-article"] .matesrates-offer .item a:hover h3 {
+    color: #e03099;
+}
+
+.color-purpletext {
+    color: #e03099 !important;
+}
+
+.color-aquatext {
+    color: #accbdf !important;
+}
+
+.matesrates-get-cash .content-form .form-row {
+    float: none;
+    width: 69%;
+    margin: 0 0 0 200px;
+    padding: 0;
+}
+
+.matesrates-get-cash .content-form .form-row-inner,
+#ux_matesrates_spread .content-form .form-row,
+#ux_matesrates_spread .content-form .form-row-inner {
+    float: none;
+    width: 57%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.matesrates-get-cash .content-form .form-row-inner dt,
+#ux_matesrates_spread .content-form .form-row-inner dt {
+    display: inline-table;
+    margin: 0 30px 0 0;
+}
+
+
+
+
+/** MATESRATES BANNER SEPTEMBER **/
+
+div[data-role="main-portal-home-matesrates-options"] h2 span em {
+    font-style: normal;
+}
+
+div[data-role="main-portal-home-matesrates"] {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+#main-portal-home-matesrates-text {
+    width: 78%;
+    font-size: 17px;
+    line-height: 30px;
+    text-align: center;
+    margin-left:inherit;
+    margin-right:inherit;
+}
+
+#main-portal-home-matesrates-text-header {
+	margin: 0;
+	padding: 0;
+	line-height: 1em;
+	width: 100%;
+	font-size: 24pt;
+	font-family: 'aldo', Arial, sans-serif;
+	color: #e03099;
+	/* font-weight: 300; */
+	line-height: 26px;
+	text-align: center;
+	margin-left:inherit;
+	margin-right:inherit;
+	margin-top: 20px;
+}
+
+#main-portal-home-matesrates-text-header span{
+    font-size: 36px;
+    line-height:1;
+}
+
+#main-portal-home-matesrates-text > p {
+	color:#FFFFFF;
+}
+#main-portal-home-matesrates-button-container {
+    width: 235px;
+    margin-left:inherit;
+    margin-right:inherit;
+    text-align:center;
+}
+
+#main-portal-home-matesrates-button-container a {
+    width: 185px;
+    text-align:center;
+}
+
+article[data-role="main-portal-content-article"] h2 {
+    /* color: #e03099 !important; */
+    font-size: 42px;
+/*     font-size: 2.65em; */
+    line-height: 42px;
+    padding-bottom: 20px;
+}
+
+
+article[data-role="main-portal-content-article"].matesrates-get-cash h2,
+article[data-role="main-portal-content-article"].matesrates-link-account h2 {
+    color:#56af31 !important;
+    font-size: 4em;
+    line-height: 42px;
+    padding-bottom: 20px;
+}
+
+.ux_matesrates article[data-role="main-portal-content-article"] p.kbintro {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.startEarning a.button {
+    width:300px;
+}
+
+div.your-matesrates-header{
+    text-align:center;
+}
+
+div.your-matesrates-subheader{
+    width:100%;
+    text-align:center;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    color: #d0dfe6;
+}
+
+#ux_matesrates_your-matesrates article > span {
+    text-align:center;
+}
+
+#ux_matesrates_your-matesrates-share article[data-role="main-portal-content-article"] h2,
+#ux_matesrates_your-matesrates article[data-role="main-portal-content-article"] h2 {
+    margin:0;
+}
+
+#ux_matesrates_your-matesrates article[data-role="main-portal-content-article"] p.kbintro {
+    font-family: aldo, sans-serif;
+    line-height:2vw;
+    margin-top:10px;
+}
+
+
+div.your-matesrates-hz-rule, div.your-matesrates-hz-rule2, .your-matesrates-hz-rule-earningsRight {
+    content: "";
+    height: 2px;
+    border-top: 2px solid #545f64;
+    top: 50%;
+    width: 100%;
+}
+
+div.your-matesrates-hz-rule2 {
+    margin: 2% 0 2% 0;
+}
+
+div.your-matesrates-recruit-members > div.header,
+div.your-matesrates-order-sims > div.header,
+#your-matesrates_order_sims > div.header {
+    width:80%
+    font-family: aldo, sans-serif;
+    font-size: 2vw;
+    color:#cbcbcb;
+    margin: 4% 0 2% 0;
+}
+
+#your-matesrates_order_sims > div.header {
+    margin:0px;
+}
+
+
+div.your-matesrates-recruit-members > div, div.your-matesrates-order-sims > div {
+    width:0%
+    font-family: Arial, sans-serif;
+    /* font-size:2vw; */
+}
+
+#input_order_matesrates_sims,
+#input_view_orders,
+#input_view_recruits,
+#input_share_my_sim_order{
+	width: auto;
+	height: auto;
+}
+
+div.your-matesrates-recruit-members > div.greenHeader,
+div.your-matesrates-order-sims > div.greenHeader,
+#your-matesrates_order_sims > div.greenHeader {
+    font-family: Arial, sans-serif;
+    color:#56af31;
+    font-size:1.3vw;
+    font-weight:bold;
+    margin:30px 0 0 0;
+} 
+
+div.your-matesrates-recruit-members > div, div.your-matesrates-order-sims > div {
+    line-height:24px;
+    font-size:16px;
+} 
+
+
+#form_row___submit_amAMember > div.slot.clearfix.left {
+    width: 74%;
+    float: left;
+}
+
+#form_row___submit_amAMember > div.slot.clearfix.right {
+    float: right;
+}
+
+#form_row___submit_amAMember.form_your_matesrates_orders  > div.slot.clearfix.right {
+    max-width: 170px;
+    float: right;
+}
+
+
+#input_order_matesrates_sims,
+#input_view_orders,
+#shareClipboardCopy{
+    background-color:#de3698;
+}
+
+#shareClipboardCopy.zeroclipboard-is-hover { background-color: rgba(255,255,255,0.5); opacity:0.5 }
+#shareClipboardCopy.zeroclipboard-is-active { background-color: #aaa; }
+
+#input_share_my_sim_order,
+#input_view_recruits {
+    background-color:#697479;
+}
+
+#input_share_my_sim_order {
+	font-size:24px;
+}
+
+.your-matesrates-share-sim-order {
+    margin-bottom:20px;
+}
+
+/* My48 Styles */
+/*Mon-85 reverted back the double credit banners*/ 
+#main-portal-home-matesrates-icon {
+    background-image: url(/css/ux2/images/content-headers/matesrates-homepage.png);
+    background-size: contain;
+    margin-left:inherit;
+    margin-right:inherit;
+    margin-top: -70px;
+    max-width: 100%;
+    height: 0px;
+    padding-top: 33.7%;
+}
+
+#matesratesImg {
+    max-width: 100%;
+    height: auto;
+}
+
+div.your-matesrates-header > div > span:before,
+div.your-matesrates-header > div > span:after ,
+h2.recruitFriend span:before,
+h2.recruitFriend span:after {
+    display:none;
+}
+
+article[data-role="main-portal-content-article"] div.your-matesrates-header h2.centered span:before,
+article[data-role="main-portal-content-article"] div.your-matesrates-header h2.centered span:after {
+   display:none;
+}
+
+.talkbubble {
+/*     width: 120px; */
+/*     height: 80px; */
+    background: rgba(96, 40, 81, 0.7);
+    color: rgba(96, 40, 81, 0.7);
+    position: relative;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.talkbubble:before {
+    content: "";
+    position: absolute;
+    right: 49%;
+    bottom:-12px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-top: 12px solid  rgba(96, 40, 81, 0.7);
+    border-right: 6px solid transparent;
+}
+
+div[data-role="alert"].matesrates .alert-cell {
+	vertical-align: middle;
+	padding: 10px;
+}
+
+
+.your-matesrates-hz-rule-earningsRight {
+    display:none;
+}
+
+
+main[data-role="main-portal-content"]  a.backMatesrates{
+    font-size:medium;
+    color:white;
+}
+
+main[data-role="main-portal-content"] div.backMatesratesArrow {
+	display: inline-block;
+	position: relative;
+	background: none;
+	padding: 10px;
+}
+
+main[data-role="main-portal-content"] div.backMatesratesArrow:after
+{
+	content: '';
+	display: block;
+	position: absolute;
+	right: 100%;
+	top: 47%;
+	margin-top: -8px;
+	width: 0;
+	height: 0;
+	border-top: 8px solid transparent;
+	border-right: 8px solid white;
+	border-bottom: 8px solid transparent;
+	border-left: 8px solid transparent;
+}
+
+
+main[data-role="main-portal-content"] div.kbEarnArrow {
+	display: inline-block;
+	position: relative;
+	background: none;
+	padding: 10px 0;
+}
+
+main[data-role="main-portal-content"] div.kbEarnArrow a:after
+{
+	content: '';
+	display: none;
+	position: absolute;
+	right: 0%;
+	top: 50%;
+	margin-top: -10px;
+	width: 0;
+	height: 0;
+	border-top: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid green;
+}
+
+#kbearnings div.kbEarnArrow.kbEarnCell.kbEarnGreen a {
+	text-decoration: none;
+}
+
+article[data-role="main-portal-content-article"].matesrates-get-cash,
+article[data-role="main-portal-content-article"].matesrates-link-account {
+	text-align:center;	
+}
+
+#ux_matesrates_get-cash div.actions {
+	margin-bottom: 23px;
+}
+
+.content-form {
+	padding: 0 0 20px 0; 
+}
+
+article[data-role="main-portal-content-article"] dt span{
+	/* position:relative; */
+	top:1.2em;
+	right:10em;
+	font-size:10px;
+	display: block;
+	margin-left: 25px;
+}
+
+#ux_matesrates_get-cash input[type="submit"] {
+	text-transform:none;
+	width: 27%;
+}
+
+
+
+#ux_matesrates_get-cash input[type="submit"].bn-kick:hover {
+	background:#8eca78;
+}
+
+article[data-role="main-portal-content-article"].matesrates-link-account  div.form-row {
+	display:inline-block;
+}

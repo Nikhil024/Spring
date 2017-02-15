@@ -1,0 +1,261 @@
+
+
+#ux_homepage_index article[data-role="main-portal-content-article"] {
+    padding-top: 40px;
+    padding-bottom: 0;
+}
+
+#ux_homepage_index article[data-role="main-portal-content-article"] h1 {
+    font-size: 45px;
+    line-height: 1em;
+    padding-bottom: 0;
+}
+
+ux_homepage_index main[data-role="main-portal-content"] section img
+homepage-matesrates-banner:hover{
+    cursor: pointer;
+}
+
+ux_homepage_index main[data-role="main-portal-content"] section img
+homepage-matesrates-banner{
+    float: left;
+}
+/*MON-85 reverted
+/* responsive CSS to remove desktop -img- tag from mobile */
+@media only screen and (max-width: 767px){
+    ux_homepage_index main[data-role="main-portal-content"] section img
+	homepage-matesrates-banner{
+        display: none;
+}
+
+    a#bannerBox{
+        display: none;
+    }
+}
+
+a#bannerBox{
+    width: 700px;
+    height: 350px;
+    float: left;
+}
+
+div[data-role="main-portal-home-campaign"] .home-campaign-info {
+    position: relative;
+    float: right;
+    width: 230px;
+    height: 280px;
+    padding: 0 0 20px 0;
+}
+
+a[data-role="evolving-notification"] {
+    display: block;
+    width: 44px;
+    height: 245px;
+    position: absolute;
+    top: 310px;
+    right: 0;
+    background-image: url('/css/ux/shared/img/evolving-notification.png');
+    background-repeat: no-repeat;
+    z-index: 999999999999;
+}
+a[data-role="evolving-notification"]:active {
+    opacity: 0.5;
+    -moz-opacity: 0.5;
+    -webkit-opacity: 0.5;
+}
+main[data-role="main-portal-content"] div[data-role="main-portal-home-campaign"] .home-campaign-info h3 {
+    color: #fff;
+    padding: 0 0 15px 0;
+    margin: 0;
+    line-height: 1em;
+    font-size: 40px;
+}
+div[data-role="main-portal-home-campaign"] .home-campaign-info p {
+    color: #eaf2f6;
+    padding: 0 0 10px 0;
+    margin: 0;
+    line-height: 1.5em;
+    font-size: 15px;
+}
+div[data-role="main-portal-home-campaign"] .home-campaign-info .button {
+    margin: 10px 0 0 0;
+}
+
+
+/*
+* Home memberships
+*/
+
+article[data-role="main-portal-content-article"] div[data-role="main-portal-home-memberships"] .home-memberships {
+    float: left;
+    width: 668px;
+
+}
+
+
+article[data-role="main-portal-content-article"] div[data-role="main-portal-home-memberships"] .home-memberships p.intro {
+    font-size: 17px;
+    line-height: 26px;
+    padding-bottom: 0;
+}
+
+
+
+article[data-role="main-portal-content-article"] div[data-role="main-portal-home-memberships"] .home-joining {
+    position: relative;
+    float: right;
+    width: 272px;
+    padding: 170px 0 0 20px;
+    padding-top: 170px;
+}
+
+article[data-role="main-portal-content-article"] div[data-role="main-portal-home-memberships"] .home-joining h3,
+article[data-role="main-portal-content-article"] div[data-role="main-portal-home-memberships"] .home-joining h3 a {
+    color: #eaf2f6;
+    font-size: 40px;
+    text-decoration: none;
+}
+
+article[data-role="main-portal-content-article"] div[data-role="main-portal-home-memberships"] .home-joining ul {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+
+article[data-role="main-portal-content-article"] div[data-role="main-portal-home-memberships"] .home-joining ul:before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 240px;
+    left: 23px;
+    top: 30px;
+    background: #295122;
+    z-index: -1;
+}
+
+
+article[data-role="main-portal-content-article"] div[data-role="main-portal-home-memberships"] .home-joining ul li:before {
+    display: none;
+}
+article[data-role="main-portal-content-article"] div[data-role="main-portal-home-memberships"] .home-joining ul li {
+    margin-bottom: 15px;
+}
+article[data-role="main-portal-content-article"] div[data-role="main-portal-home-memberships"] .home-joining ul li span {
+    display: inline-block;
+    width: 38px;
+    height: 59px;
+    text-align: center;
+    line-height: 60px;
+    padding: 1px 0 0 15px;
+    margin-right: 10px;
+    color: #000;
+    background: url(img/sprite.png) no-repeat 0 -495px;
+}
+
+article[data-role="main-portal-content-article"] div[data-role="main-portal-home-memberships"] .home-joining ul li a {
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+article[data-role="main-portal-content-article"] div[data-role="main-portal-home-memberships"] .home-joining ul li a:after {
+    content: "»";
+    margin-left: 5px;
+    color: #53af31;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+
+
+main[data-role="main-portal-content"] div[data-role="main-portal-home-memberships"] .home-memberships .	-wrapper {
+    position: relative;
+    left: -25px;
+    width: 668px;
+    height: 508px;
+    display: block;
+}
+
+main[data-role="main-portal-content"] .home-memberships .membership-items-wrapper .membership-items {
+    position: relative;
+    float: left;
+    width: 334px;
+    height: 508px;
+    /*padding-top: 80px;*/
+    text-align: center;
+}
+main[data-role="main-portal-content"] .home-memberships .membership-items-wrapper .membership-items.guido {
+    background: url(img/home-membership-bg.png) no-repeat 0 0;
+    padding-top: 0px;
+
+}
+
+main[data-role="main-portal-content"] .membership-items.guido{
+    padding-top: 5px;
+}
+
+main[data-role="main-portal-content"] .membership-items.guido h3 span{
+    padding-bottom: 15px;
+}
+
+main[data-role="main-portal-content"] .membership-items.don h3 span{
+    padding-bottom: 15px;
+}
+
+main[data-role="main-portal-content"] .home-memberships .membership-items-wrapper .membership-items.don {
+    background: url(img/home-membership-bg.png) no-repeat -334px 0;
+    padding-top: 0px;
+}
+
+article[data-role="main-portal-content-article"] div[data-role="main-portal-home-memberships"] .membership-items-wrapper p {
+    color: #b2c2c9;
+    font-size: 12px;
+}
+article[data-role="main-portal-content-article"] div[data-role="main-portal-home-memberships"] .membership-items-wrapper p a {
+    font-size: 12px;
+}
+
+/*
+* Help and Support
+*
+*/
+
+
+div[data-role="help-and-support-options"] {
+    margin-bottom: 80px;
+}
+
+
+/*
+*  Community
+*
+*/
+
+
+div[data-role="main-portal-home-community"] {
+    display: table;
+    margin-top: 15px;
+    padding-bottom: 70px;
+}
+div[data-role="main-portal-home-community"] .community-cell {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    padding: 0;
+}
+div[data-role="main-portal-home-community"] .community-cell.actions {
+    white-space: nowrap;
+    text-align: right;
+}
+div[data-role="main-portal-home-community"] .community-cell p {
+    font-size: 16px;
+    font-weight: lighter;
+    color: #fff;
+    line-height: 1.2em;
+    padding: 10px 20px 10px 110px;
+    margin: 0;
+    background: url(img/home-community.png) no-repeat top left;
+}
+
+div[data-role="main-portal-home-community"] .community-cell .button {
+    height: 48px;
+}

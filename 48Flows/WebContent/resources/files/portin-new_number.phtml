@@ -1,0 +1,5 @@
+<?php $form = $this->form; ?>
+<p class="large standout"><b>Nice one, let's get you a new number</b></p>
+<br />
+
+<?php echo $form->getElement(sprintf('submit_%s', constant(sprintf('%s::OPTION_NEW_NUMBER', get_class($form)))))->renderInputSubmit(); ?>

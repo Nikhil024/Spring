@@ -1,0 +1,45 @@
+<?php
+if(!$this->disableSidebarProgress) {
+	// transpate
+	$translate = $this->translate;
+	// wizard
+	$wizard = $this->wizard;
+
+
+	if(!empty($wizard) && $wizard->isActive()) {
+		 // nav
+		$navigation = new Ux_Component_ActivateSim_Wizard_Navigation_TreeNavigation($wizard);
+		// autoexpand
+		$navigation->setAutoexpand(false);
+	}
+}
+?>
+
+<?php if(isset($navigation)) : ?>
+	<div data-role="sidebar-content" id="wizard-sidebar-progress">
+		<div data-role="section">
+			<h4 class="huge standout">Activating your 48 SIM</h4>
+				<?php echo $navigation->render(); ?>
+			</h4>
+		</div>
+	</div>
+<?php endif; ?>
+
+<?php
+// request
+$request = Zend_Controller_Front::getInstance()->getRequest();
+// module name
+$moduleName 	= $request->getModuleName();
+// controller name
+$controllerName = $request->getControllerName();
+// action name
+$actionName 	= $request->getActionName();
+// partial
+$partial		= sprintf("%s/sidebar/%s.phtml", $controllerName, $actionName);
+
+if($this->getScriptPath($partial) !== false) {
+	// render partial
+	echo $this->render($partial);
+}
+
+?>

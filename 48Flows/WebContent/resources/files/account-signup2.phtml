@@ -1,0 +1,226 @@
+<?php 
+// import required stuff
+$form   	= $this->form;
+$helper 	= $this->getHelper('InlineForm');
+$wizard  	= $this->wizard;
+$step 		= $wizard->getActiveStep();
+?>
+
+
+<?php $helper->openFormTag($form); ?>
+
+	<?php $helper->openFormRowGroup($form, array('firstname', 'lastname'), array('class' => 'clearfix')); ?>
+		
+		<div data-role="rows" class="left">
+			<!-- begin row -->
+			 <?php $element = $form->firstname;  ?>
+			 <?php $helper->openFormRow($form, $element); ?>
+				<div class="slot clearfix">
+					<label class="normal left text_right"><?php echo $element->renderInputLabel(); ?> </label>
+					<div class="left input_wrap">
+		 				<?php echo $element->renderInputText(); ?>
+					</div>
+				</div>
+			 	<?php echo $element->renderInputErrors(); ?>
+			 <?php $helper->closeFormRow(); ?>
+			<!-- end row -->
+
+			<!-- begin row -->
+			 <?php $element = $form->lastname;  ?>
+			 <?php $helper->openFormRow($form, $element); ?>
+				<div class="slot clearfix">
+					<label class="normal left text_right"><?php echo $element->renderInputLabel(); ?> </label>
+					<div class="left input_wrap">
+		 				<?php echo $element->renderInputText(); ?>
+					</div>
+				</div>
+			 	<?php echo $element->renderInputErrors(); ?>
+			 <?php $helper->closeFormRow(); ?>
+			<!-- end row -->
+		</div>
+	<?php $helper->closeFormRowGroup(); ?>
+
+	<?php $helper->openFormRowGroup($form, array('birthdate'), array('class' => $class)); ?>
+			<!-- begin row -->
+			<?php $element = $form->birthdate; ?>
+		 	<?php $helper->openFormRow($form, $element); ?>
+				<div class="slot clearfix">
+					<label class="normal left text_right"><?php echo $element->renderInputLabel(); ?> </label>
+					<div class="left input_wrap">
+						<?php echo $element->renderViewHelper(); ?>
+					</div>
+				</div>
+
+				<div class="slot clearfix" id="bday-unallowed">
+					<br />
+					<h3 class="standout huger">OOPS! You sure that's your age?</h3>
+					<br />
+					<p>
+					<?php $dateTime = new \DateTime(); ?>
+					<?php $year  	= $dateTime->format('Y'); ?>
+					You know you gotta be between 18 and 22 to get in right?
+					That means you need to be born between <?php echo $year - 22; ?> and <?php echo $year - 18 ?>.
+					</p>
+				</div>
+				<?php if(is_null($class)) : ?>
+			 		<?php echo $element->renderInputErrors(); ?>
+			 	<?php endif; ?>
+		 	<?php $helper->closeFormRow(); ?>
+			<!-- end row -->
+	<?php $helper->closeFormRowGroup(); ?>
+
+	<?php $helper->openFormRowGroup($form, array('email', 'confirm_email'), array('class' => 'clearfix')); ?>
+
+		<div data-role="rows" class="left">
+			<!-- begin row -->
+			 <?php $element = $form->email; ?>
+			 <?php $row = $helper->openFormRow($form, $element); ?>
+				<div class="slot clearfix">
+					<label class="normal left text_right"><?php echo $element->renderInputLabel(); ?> </label>
+					<div class="left input_wrap">
+						<img data-role="ajax-validation" src="/css/ux/48/img/check-spinner.gif" />
+		 				<?php echo $element->renderInputText(); ?>
+					</div>
+				</div>
+			 	<?php echo $form->email->renderInputErrors(); ?>
+			 <?php $helper->closeFormRow(); ?>
+			<!-- end row -->
+
+			<!-- begin row -->
+			 <?php $element = $form->confirm_email; ?>
+			 <?php $row = $helper->openFormRow($form, $element); ?>
+				<div class="slot clearfix">
+					<label class="normal left text_right"><?php echo $element->renderInputLabel(); ?> </label>
+					<div class="left input_wrap">
+		 				<?php echo $element->renderInputText(); ?>
+					</div>
+				</div>
+			 	<?php echo $element->renderInputErrors(); ?>
+			 <?php $helper->closeFormRow(); ?>
+			<!-- end row -->
+		</div>
+
+		<div data-role="hints" class="left">
+			<?php $helper->openFormRowHint($form, 'email'); ?>
+				<p class="small">Pick one you use a lot as you’ll need this each time you log in.</p>
+			<?php $helper->closeFormRowHint() ?>
+
+
+		</div>
+
+	<?php $helper->closeFormRowGroup(); ?>
+
+	<?php $helper->openFormRowGroup($form, array('nickname'), array('class' => 'clearfix')); ?>
+		<div data-role="rows" class="left">
+
+			<!-- begin row -->
+			 <?php $element = $form->nickname; ?>
+			 <?php $row = $helper->openFormRow($form, $element); ?>
+				<div class="slot clearfix">
+					<label class="normal left text_right"><?php echo $element->renderInputLabel(); ?> </label>
+					<div class="left input_wrap">
+						<img data-role="ajax-validation" src="/css/ux/48/img/check-spinner.gif" />
+		 				<?php echo $element->renderInputText(); ?>
+					</div>
+				</div>
+			 	<?php echo $element->renderInputErrors(); ?>
+			 <?php $helper->closeFormRow(); ?>
+			<!-- end row -->
+
+		</div>
+
+		<div data-role="hints" class="left">
+			<?php $helper->openFormRowHint($form, 'nickname'); ?>
+				<p class="small">This is the name that will appear when you post in the 48 Community.</p>
+			<?php $helper->closeFormRowHint() ?>
+
+		</div>
+	<?php $helper->closeFormRowGroup(); ?>
+
+
+
+	<?php $helper->openFormRowGroup($form, array('password'), array('class' => 'clearfix')); ?>
+		<div data-role="rows" class="left">
+
+			<!-- begin row -->
+			 <?php $element = $form->password; ?>
+			 <?php $row = $helper->openFormRow($form, $element); ?>
+				<div class="slot clearfix">
+					<label class="normal left text_right"><?php echo $element->renderInputLabel(); ?> </label>
+					<div class="left input_wrap">
+		 				<?php echo $element->renderInputPassword(); ?>
+					</div>
+				</div>
+			 	<?php echo $element->renderInputErrors(); ?>
+			 <?php $helper->closeFormRow(); ?>
+			<!-- end row -->
+		</div>
+
+		<div data-role="hints" class="left">
+			<?php $helper->openFormRowHint($form, 'password'); ?>
+				<p class="small">Pick one that’s at least 6 digits long and contains one number or symbol. It's for your own good.</p>
+			<?php $helper->closeFormRowHint() ?>
+		</div>
+	<?php $helper->closeFormRowGroup(); ?>
+
+
+	<?php $helper->openFormRowGroup($form, array('subscribe', 'promotions', 'submit'), array('class' => 'clearfix')); ?>
+		<div class="left">
+			<!-- begin row -->
+			 <?php $helper->openFormRow($form, 'subscribe'); ?>
+				<div class="slot clearfix">
+					<label class="normal left text_right"></label>
+					<div class="left informed_wrap">
+		 				<?php echo $form->subscribe->renderViewHelper(); ?>
+		 				<span class="small standout">Keep me updated on 48's new stuff & offers</span>
+					</div>
+				</div>
+				<div class="slot clearfix">
+					<label class="normal left text_right"></label>
+					<div class="left input_wrap">
+		 				<?php echo $form->promotions->renderViewHelper(); ?>
+		 				<span class="small standout" >Tell me more stuff about goods and services from 48's partners</span>
+					</div>
+				</div>
+			 <?php $helper->closeFormRow(); ?>
+			<!-- end row -->
+
+			<!-- row agreement name -->
+			 <div class="row">
+				<div class="slot clearfix">
+					<label class="normal left text_right"></label>
+					<div class="left input_wrap">
+						<p class="small standout">By clicking on the button below accept our <a class="underline standout" href="/boiler-plate/terms" target="_blank">terms and conditions</a> and <a class="underline standout" href="/boiler-plate/privacy" target="_blank">privacy policy</a>
+					</div>
+				</div>
+			 </div>
+			<!-- end row agreement name -->
+
+			 <!-- begin row -->
+			 <?php $helper->openFormRow($form, 'submit', array('class' => 'text_right')); ?>
+				 <div class="slot clearfix">
+					<label class="normal left text_right"></label>
+					<div class="left input_wrap">
+						<?php echo $form->submit->render(); ?>
+						<?php if($step->allowsScenarioSwitch()) : ?>
+							<br />
+							<p class="text_right">
+					 			<a href="?scenario=<?php echo constant(sprintf('%s::SCENARIO_AUTHENTICATE'), get_class($step)); ?>" class="small underline">Back to login</a>
+							</p>
+						<?php endif; ?>
+					</div>
+				 </div>
+			 <?php $helper->closeFormRow(); ?>
+			 <!-- end row -->
+
+		</div>
+	<?php $helper->closeFormRowGroup(); ?>
+
+<?php $helper->closeFormTag(); ?>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	// init
+	app.activate_sim.account_signup.initWithForm(<?php echo sprintf("'#%s'", $form->getId()); ?>);
+});
+</script>

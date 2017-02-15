@@ -1,0 +1,29 @@
+<?php $form   	= $this->form; ?>
+
+<?php if($form->hasErrorMessages()) : ?>
+	<ul data-role="global-form-errors">
+		<?php foreach($form->getErrorMessages() as $message) : ?>
+			<li><?php echo $message; ?></li>
+		<?php endforeach; ?>
+	</ul>
+<?php endif; ?>
+
+<h1 class="mega highlight"><?php echo $form->getDescription(); ?></h1>
+<br />
+
+<!-- legend -->
+<?php $legend = $form->getLegend(); ?>
+
+<?php if(!empty($legend)) : ?>
+	<p class="largest"><?php echo $form->getLegend(); ?></p>
+	<br />
+<?php endif; ?>
+
+<?php echo $this->render('activate-sim/forms/registration-code.phtml'); ?>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	// init
+	app.activate_sim.registration_code.initWithForm(<?php echo sprintf("'#%s'", $form->getId()); ?>);
+});
+</script>

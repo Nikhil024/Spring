@@ -1,0 +1,254 @@
+<!--  This message needs to be removed on 20th Jan MON-93-->
+<!--<div data-role="ui-notification" data-style="success">
+    <div data-role="content">Due to un-precendented demand for 48 ‘nano’ sims current stocks are running low, please bear with us as we replenish stocks which may take up to 4 working days.</div>
+</div>-->
+<?php 
+// import form
+$form   	= $this->form;
+// import helper
+$helper 	= $this->getHelper('InlineForm');
+ ?>
+
+<?php $helper->openFormTag($form); ?>
+
+    <?php echo $form->distribution_channel->renderInputHidden(); ?>
+
+	<div>
+		<p class="largest">
+			<b>1. What type of SIM do you need ?</b>
+		</p>
+		<?php $helper->openFormRowGroup($form, array('sim_type'), array('class' => 'clearfix')); ?>
+			<!-- row sim type -->
+			 <?php $helper->openFormRow($form, 'sim_type'); ?>
+				<div class="slot clearfix">
+					<label class="largest left text_right no-req"><?php echo $form->sim_type->renderInputLabel(); ?> </label>
+					<div class="left input_wrap">
+						<ul data-role="sim_type_options">
+							<?php foreach($form->sim_type->getMultioptions() as $option => $description) : ?>
+								<li class="clearfix" id="sim_type-option-<?php echo $option; ?>">
+									<div class="left" data-role="sim_type_option_input">
+					 					<?php echo $form->sim_type->renderInputRadioOption($option, App_Form_Decorator_InputRadioOption::RENDER_MODE_INPUT); ?>
+										<span class="icon">&nbsp;</span>
+									</div>
+
+									<div class="left" data-role="sim_type_option_label">
+			 							<?php echo $form->sim_type->renderInputRadioOption($option, App_Form_Decorator_InputRadioOption::RENDER_MODE_LABEL); ?>
+									</div>
+								</li>
+		 					<?php endforeach; ?>
+						</ul>
+					</div>
+				</div>
+			 <?php $helper->closeFormRow(); ?>
+			<!-- end row sim type -->
+		<?php $helper->closeFormRowGroup(); ?>
+	</div>
+	<div>
+		<p class="largest">
+			<b>2. Your details</b>
+			<br /><br />
+			<span>Enter your details in the form below</span>
+			<br /><br />
+		</p>
+		<?php $helper->openFormRowGroup($form, array('firstname', 'lastname'), array('class' => 'clearfix')); ?>
+			<div data-role="rows" class="left">
+				<!-- row firstname -->
+				 <?php $helper->openFormRow($form, 'firstname'); ?>
+					<div class="slot clearfix">
+						<label class="normal left text_right"><?php echo $form->firstname->renderInputLabel(); ?> </label>
+						<div class="left input_wrap">
+			 				<?php echo $form->firstname->renderInputText(); ?>
+						</div>
+					</div>
+				 	<?php echo $form->firstname->renderInputErrors(); ?>
+				 <?php $helper->closeFormRow(); ?>
+				<!-- end row firstname -->
+
+				<!-- row lastname -->
+				 <?php $helper->openFormRow($form, 'lastname'); ?>
+					<div class="slot clearfix">
+						<label class="normal left text_right"><?php echo $form->lastname->renderInputLabel(); ?> </label>
+						<div class="left input_wrap">
+			 				<?php echo $form->lastname->renderInputText(); ?>
+						</div>
+					</div>
+				 	<?php echo $form->lastname->renderInputErrors(); ?>
+				 <?php $helper->closeFormRow(); ?>
+				<!-- end row lastname -->
+			</div>
+		<?php $helper->closeFormRowGroup(); ?>
+
+		<?php $classes = array('clearfix'); ?>
+
+		<?php $shouldChangeSim = $form->shouldSuggestSIMChange(); ?>
+
+		<?php if($shouldChangeSim) : ?>
+			<?php $classes[] = 'suggestion'; ?>
+		<?php endif; ?>
+
+		<?php $helper->openFormRowGroup($form, array('email', 'confirm_email'), array('class' => implode(' ', $classes))); ?>
+
+			<div data-role="rows" class="left">
+				<!-- row email -->
+				 <?php $row = $helper->openFormRow($form, 'email'); ?>
+					<div class="slot clearfix">
+						<label class="normal left text_right"><?php echo $form->email->renderInputLabel(); ?> </label>
+						<div class="left input_wrap">
+							<img data-role="ajax-validation" src="/css/ux/48/img/check-spinner.gif" />
+			 				<?php echo $form->email->renderInputText(); ?>
+						</div>
+					</div>
+					<?php if(!$shouldChangeSim) : ?>
+				 		<?php echo $form->confirm_email->renderInputErrors(); ?>
+				 	<?php endif; ?>
+				 <?php $helper->closeFormRow(); ?>
+				<!-- end row email -->
+
+				<!-- row confirm email -->
+				 <?php $helper->openFormRow($form, 'confirm_email'); ?>
+					<div class="slot clearfix">
+						<label class="normal left text_right"><?php echo $form->confirm_email->renderInputLabel(); ?> </label>
+						<div class="left input_wrap">
+			 				<?php echo $form->confirm_email->renderInputText(); ?>
+						</div>
+					</div>
+				 	<?php echo $form->confirm_email->renderInputErrors(); ?>
+				 <?php $helper->closeFormRow(); ?>
+				<!-- row confirm email -->
+
+				<div class="row" id="suggestion-note">
+					<p class="small error">
+						<b>We see that you already have a 48 account and SIM.
+						<br /><br />
+						If you need to change your existing SIM, go to the <a href="<?php echo $this->url(array(), 'change_my_sim'); ?>" class="highlight underline">Change my SIM</a> section in My 48. Otherwise you will lose your existing account and phone number.
+						</b>
+					</p>
+				</div>
+			</div>
+		<?php $helper->closeFormRowGroup(); ?>
+
+		<!-- specifically require the mobile phone number -->
+		<?php if($form instanceof Ux_Form_Order_Affiliate_PlanMyDebs_FreeSimForm) : ?>
+
+			<?php $helper->openFormRowGroup($form, array('mobile_phone')); ?>
+
+				<div data-role="rows">
+					<!-- row phone -->
+					 <?php $row = $helper->openFormRow($form, 'mobile_phone'); ?>
+						<div class="slot clearfix">
+							<label class="normal left text_right"><?php echo ucfirst($form->mobile_phone->renderInputLabel()); ?> </label>
+							<div class="left input_wrap">
+				 				<?php echo $form->mobile_phone->renderInputPhone(); ?>
+							</div>
+						</div>
+						<div class="slot" id="pmd-notice">
+							<p class="small standout" >
+								This offer is exclusive to customers of PlanMyDebs. <br />Prove it by entering the mobile number we contacted you on here. 
+							</p>
+						</div>
+					 	<?php echo $form->mobile_phone->renderInputErrors(); ?>
+					 <?php $helper->closeFormRow(); ?>
+					<!-- end row phone -->
+				</div>
+			<?php $helper->closeFormRowGroup(); ?>
+		<?php endif; ?>
+		<!-- end -->
+
+		<?php $helper->openFormRowGroup($form, array('street_line_1', 'street_line_2', 'city', 'county'), array('class' => 'clearfix')); ?>
+
+			<div data-role="rows" class="left">
+
+				<?php for($i = 1; $i <= 2; $i ++): ?>
+					<?php $fieldname = sprintf("street_line_%s", $i); ?>
+					<!-- row -->
+					 <?php $row = $helper->openFormRow($form, $fieldname); ?>
+						<div class="slot clearfix">
+							<label class="normal left text_right"><?php echo $form->{$fieldname}->renderInputLabel(); ?> </label>
+							<div class="left input_wrap">
+				 				<?php echo $form->{$fieldname}->renderInputText(); ?>
+							</div>
+						</div>
+					 	<?php echo $form->{$fieldname}->renderInputErrors(); ?>
+					 <?php $helper->closeFormRow(); ?>
+				<?php endfor; ?>
+
+				<!-- row city -->
+				 <?php $row = $helper->openFormRow($form, 'city'); ?>
+					<div class="slot clearfix">
+						<label class="normal left text_right"><?php echo $form->city->renderInputLabel(); ?> </label>
+						<div class="left input_wrap">
+			 				<?php echo $form->city->renderInputText(); ?>
+						</div>
+					</div>
+				 	<?php echo $form->city->renderInputErrors(); ?>
+				 <?php $helper->closeFormRow(); ?>
+				<!-- end row city -->
+
+				<!-- row county -->
+				 <?php $row = $helper->openFormRow($form, 'county'); ?>
+					<div class="slot clearfix">
+						<label class="normal left text_right"><?php echo $form->county->renderInputLabel(); ?> </label>
+						<div class="left input_wrap">
+			 				<?php echo $form->county->renderInputSelect(); ?>
+			 				<p>
+			 					<br />
+				 				<span class="small">
+									We only deliver to the Republic of Ireland
+								</span>
+							</p>
+						</div>
+					</div>
+				 	<?php echo $form->county->renderInputErrors(); ?>
+				 <?php $helper->closeFormRow(); ?>
+				<!-- end row county -->
+
+			</div>
+		<?php $helper->closeFormRowGroup(); ?>
+
+		<?php $helper->openFormRowGroup($form, array('subscribe'), array('class' => 'clearfix')); ?>
+			<div class="left">
+				<!-- row subscribe name -->
+				 <?php $helper->openFormRow($form, 'subscribe'); ?>
+					<div class="slot clearfix">
+						<label class="normal left text_right"></label>
+						<div class="left informed_wrap">
+			 				<?php echo $form->subscribe->renderViewHelper(); ?>
+			 				<span class="small standout">Keep me updated on 48's new stuff & offers</span>
+						</div>
+					</div>
+
+				 <?php $helper->closeFormRow(); ?>
+				<!-- row subscribe name -->
+
+				<!-- row agreement name -->
+				 <div class="row">
+					<div class="slot clearfix">
+						<label class="normal left text_right"></label>
+						<div class="left input_wrap">
+							<p class="small standout">By clicking on the button below accept our <a class="underline standout" href="/boiler-plate/terms" target="_blank">terms and conditions</a> and <a class="underline standout" href="/boiler-plate/privacy" target="_blank">privacy policy</a>
+						</div>
+					</div>
+				 </div>
+				<!-- row agreement name -->
+
+
+				<div class="row">
+					<label class="normal left text_right"></label>
+					<div class="left input_wrap">
+						<a href="#" tabindex="11" onclick="return app.order.free_sim.submitForm('#<?php echo $form->getId(); ?>');" data-style="control" data-control="composite" class="highlight" style="width: 235px;">
+							<strong>Order a free SIM</strong>
+							to get started
+						</a>
+					</div>
+				</div>
+			</div>
+		<?php $helper->closeFormRowGroup(); ?>
+	</div>
+<?php $helper->closeFormTag(); ?>
+
+<script type="text/javascript">
+/* jQuery(document).ready(function() {
+	// init
+	app.order.free_sim.initWithForm('#<?php echo $form->getId(); ?>');
+}); */
+</script>

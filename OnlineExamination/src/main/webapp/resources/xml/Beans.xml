@@ -25,5 +25,9 @@
 	<bean id="imagesDao" class="com.thbs.Dao.ImagesDao">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-
+	
+	<bean id="userdetailsDao" class="com.thbs.Dao.UserDetailsDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
 </beans>

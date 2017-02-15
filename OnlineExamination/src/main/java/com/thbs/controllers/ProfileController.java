@@ -90,6 +90,8 @@ public class ProfileController {
 				}
 			}
 			
+			
+			
 			if(images.getName() == null){
 				model.addAttribute(NO_PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
 				model.addAttribute(USER_PROFILE_PICTURE,ExamConstants.FIRST_TIME_PROFILE_AND_NO_PROFILE_PICTURE); 

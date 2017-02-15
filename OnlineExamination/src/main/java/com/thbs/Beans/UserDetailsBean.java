@@ -80,7 +80,4 @@ public class UserDetailsBean {
 	public void setLastupdate(String lastupdate) {
 		this.lastupdate = lastupdate;
 	}
-
-	
-	
 }

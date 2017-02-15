@@ -3,6 +3,7 @@ package com.thbs.data;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
+import com.thbs.Beans.UserDetailsBean;
 import com.thbs.Dao.EmailLinkEncryptionDao;
 import com.thbs.Dao.ImagesDao;
 import com.thbs.Dao.UsersDao;
@@ -25,6 +26,12 @@ public class GetBeanContext {
 	public ImagesDao getImagesBeanContext(){
 		ImagesDao imagesDao = (ImagesDao)context.getBean("imagesDao");
 		return imagesDao;
+	}
+	
+	
+	public UserDetailsBean getuserDetailsBeanContext(){
+		UserDetailsBean userdetailsDao = (UserDetailsBean)context.getBean("userdetailsDao");
+		return userdetailsDao;
 	}
 	
 	

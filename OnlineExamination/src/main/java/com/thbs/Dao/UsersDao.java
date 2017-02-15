@@ -29,7 +29,7 @@ public class UsersDao implements Iuser  {
 	public int insertData(UsersBean u) {
 		int count = jdbcTemplateObject.update(ExamConstants.INSERT_USERS_DATA,u.getName(),u.getEmail(),u.getPassword(),u.getUserType(),u.getEmailVerified(),u.getAdminAccepted(),u.getLastLogin());
 		if(count==1){
-			log.info("Quert to insert data "+ExamConstants.INSERT_USERS_DATA);
+			log.info("Query to insert data "+ExamConstants.INSERT_USERS_DATA);
 			log.info("Successfully inserted data with name "+u.getName());
 		return count;
 		}

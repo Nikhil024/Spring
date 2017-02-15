@@ -33,6 +33,7 @@
 	
 	<bean id="users" class="com.thbs.Beans.UsersBean"/>
 	<bean id="emaillinkencryption" class="com.thbs.Beans.EmailLinkEncryptionBean"/>
+	<bean id="images" class="com.thbs.Beans.ImagesBean"/>
 	<bean id="sendemail" class="com.thbs.Beans.SendEmailBean"/>
 
 </beans>	

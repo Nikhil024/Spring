@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import com.thbs.Dao.EmailLinkEncryptionDao;
+import com.thbs.Dao.ImagesDao;
 import com.thbs.Dao.UsersDao;
 
 public class GetBeanContext {
@@ -20,5 +21,11 @@ public class GetBeanContext {
 		EmailLinkEncryptionDao emailLinkencryptionDao = (EmailLinkEncryptionDao)context.getBean("emailLinkencryptionDao");
 		return emailLinkencryptionDao;
 	}
+	
+	public ImagesDao getImagesBeanContext(){
+		ImagesDao imagesDao = (ImagesDao)context.getBean("imagesDao");
+		return imagesDao;
+	}
+	
 	
 }

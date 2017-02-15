@@ -34,7 +34,7 @@ public class LoginController {
 	private final String REDIRECT = "redirect";
 	private final String REDIRECT_VALUE = "redirectValue";
 	private final String VIEW_NAME = "login";
-	private final String SUCCESS_VIEW_NAME = "dashboard";
+	private final String SUCCESS_VIEW_NAME = "profile";
 	
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -99,7 +99,7 @@ public class LoginController {
 				session.setAttribute("email", u.getEmail());
 				model.addAttribute(REDIRECT,ExamConstants.REDIRECT_VALUE);
 				model.addAttribute(EMAIL_VALUE,email);
-				model.addAttribute(REDIRECT_VALUE,"/"+SUCCESS_VIEW_NAME);
+				model.addAttribute(REDIRECT_VALUE,SUCCESS_VIEW_NAME);
 				return VIEW_NAME;
 					
 					}

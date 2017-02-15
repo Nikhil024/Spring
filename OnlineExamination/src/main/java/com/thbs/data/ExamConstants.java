@@ -45,9 +45,14 @@ public final class ExamConstants {
 	public final static String MODEL_ATTRIBUTE = "data";
 	public final static String PIE_CHART_STORE_LOCATION = PropertiesfileReading.getProperty("PieChartStoreLocation");
 	public final static String NO_LOGIN_MESSAGE = PropertiesfileReading.getProperty("NoLoginMessage");
-	
 	public final static String CATILANA_HOME_LOCATION = System.getProperty("catalina.home");
 	public final static String PIE_CHART_STORED_LOCATION = CATILANA_HOME_LOCATION + PIE_CHART_STORE_LOCATION;
+	public final static String JPEG_IMAGE_EXTENSION = PropertiesfileReading.getProperty("JPEGImageExtension");
+	public final static String FIRST_TIME_PROFILE_AND_NO_PROFILE_PICTURE = PropertiesfileReading.getProperty("FirstTimeProfileAndNoProfilePicture");
+	public final static String INSERT_IMAGE_QUERY = PropertiesfileReading.getProperty("InsertImage");
+	public final static String UPDATE_IMAGE_QUERY = PropertiesfileReading.getProperty("UpdateImage");
+	public final static String SELECT_IMAGE_QUERY = PropertiesfileReading.getProperty("GetAllImages");
+	
 	
 	public static String NO_DATA = PropertiesfileReading.getProperty("NoData");
 	public static String EMAIL_VERIFICATION_ALREADY_DONE = PropertiesfileReading.getProperty("EmailVerificationAlreadyDone");

@@ -51,7 +51,7 @@
 </script>
 
 </head>
-<body oncontextmenu="return false;">
+<body> <!-- oncontextmenu="return false;"> -->
 	<!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
 	<script src="<spring:url value="/resources/js/jquery.min.js"/>"
 		type="text/javascript"></script>

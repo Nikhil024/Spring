@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,8 @@ import com.thbs.data.GetBeanContext;
 
 @Controller
 public class DashboardController {
+	
+	private static final Logger log = LoggerFactory.getLogger(DashboardController.class);
 
 	@Autowired
 	UsersBean user;
@@ -34,6 +38,7 @@ public class DashboardController {
 	private final String FAIL_MODEL_ATTRIBUTE = "fail";
 	private final String SESSION_AND_MODEL_EMAIL_VARIABLE = "email";
 	private final String USER_NAME = "username";
+	private final String NO_USER_PROFILE_PICTURE = "userprofileimage";
 	ArrayList<String> name = new ArrayList<String>();
 	ArrayList<Integer> marks = new ArrayList<Integer>();
 	
@@ -60,6 +65,7 @@ public class DashboardController {
 		 
 		 for(UsersBean u : users){
 			model.addAttribute(USER_NAME,u.getName()); 
+			model.addAttribute(PIE_CHART_LOCATION,u.getName()+ExamConstants.JPEG_IMAGE_EXTENSION);
 		 }
 		 
 		 

@@ -21,9 +21,9 @@
 	<bean id="emailLinkencryptionDao" class="com.thbs.Dao.EmailLinkEncryptionDao">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-<!-- 
-	<bean id="imagesDao" class="com.growagro.Dao.ImagesDao">
+
+	<bean id="imagesDao" class="com.thbs.Dao.ImagesDao">
 		<property name="dataSource" ref="dataSource" />
-	</bean> -->
+	</bean>
 
 </beans>

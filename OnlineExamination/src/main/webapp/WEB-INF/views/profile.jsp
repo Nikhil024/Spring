@@ -7,6 +7,179 @@
 <html lang="en">
 <head>
 <jsp:include page="Header.jsp"></jsp:include>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.css"
+	rel="stylesheet" />	
+	
+	<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.min.css"
+	rel="stylesheet" />	
+	
+	
+	
+<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.common.js">
+		</script>
+		
+		
+		<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.common.min.js">
+		</script>
+		
+		<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.js">
+		</script>
+		
+		<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.min.css">
+		</script>
+		
+		
+		<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.min.js">
+		</script>
+		<script>
+		function showSwal(type){
+	    	if(type == 'basic'){
+	    		swal.queue([{
+	    			  title: 'Your public IP',
+	    			  confirmButtonText: 'Show my public IP',
+	    			  text:
+	    			    'Your public IP will be received ' +
+	    			    'via AJAX request',
+	    			  showLoaderOnConfirm: true,
+	    			  preConfirm: function () {
+	    			    return new Promise(function (resolve) {
+	    			      $.get('https://api.ipify.org?format=json')
+	    			        .done(function (data) {
+	    			          swal.insertQueueStep(data.ip)
+	    			          resolve()
+	    			        })
+	    			    })
+	    			  }
+	    			}])
+
+	    	}else if(type == 'password-notification'){
+	    		swal({
+	    			  title: 'Your\'e password shold be as follows',
+	    			  html: $('<div>')
+	    			    .addClass('some-class')
+	    			    .text('jQuery is everywhere.'),
+	    			  animation: false,
+	    			  customClass: 'animated tada'
+	    			})
+
+	    	}else if(type == 'photo-upload'){
+	    		swal({
+	    			  title: 'Select a photo',
+	    			  text: "and upload as profile pic",
+	    			  type: 'question',
+	    			  showCancelButton: true,
+	    			  confirmButtonColor: '#3085d6',
+	    			  cancelButtonColor: '#d33',
+	    			  confirmButtonText: 'Yes, Browse',
+	    			  cancelButtonText: 'No, cancel!',
+	    			  confirmButtonClass: 'btn btn-success',
+	    			  cancelButtonClass: 'btn btn-danger',
+	    			  buttonsStyling: false
+	    			}).then(function () {
+	    				swal({
+	    					  title: 'Select image',
+	    					  input: 'file',
+	    					  inputAttributes: {
+	    					    accept: 'image/*'
+	    					  }
+	    					}).then(function (file) {
+	    					  var reader = new FileReader
+	    					  reader.onload = function (e) {
+	    						  var result = e.target.result;
+	    						alert(reader);
+	    					    swal({
+	    					      imageUrl: e.target.result
+	    					      
+	    					    })
+	    					  }
+	    					  
+	    					  reader.readAsDataURL(file)
+	    					})
+	    			}, function (dismiss) {
+	    			  // dismiss can be 'cancel', 'overlay',
+	    			  // 'close', and 'timer'
+	    			  if (dismiss === 'cancel') {
+	    			    swal(
+	    			      'Cancelled',
+	    			      'Good to hear! :)',
+	    			      'error'
+	    			    )
+	    			  }
+	    			})
+
+	    	}else if(type == 'success-message'){
+	        	swal("Good job!", "You clicked the button!", "success")
+
+	    	}else if(type == 'warning-message-and-confirmation'){
+	        	swal({  title: "Are you sure?",
+	            	    text: "You will not be able to recover this imaginary file!",
+	            	    type: "warning",
+	                    showCancelButton: true,
+	                    confirmButtonClass: "btn btn-info btn-fill",
+	                    confirmButtonText: "Yes, delete it!",
+	                    cancelButtonClass: "btn btn-danger btn-fill",
+	                    closeOnConfirm: false,
+	                },function(){
+	                    swal("Deleted!", "Your imaginary file has been deleted.", "success");
+	                });
+
+	    	}else if(type == 'warning-message-and-cancel'){
+	        	swal({  title: "Are you sure?",
+	            	    text: "You will not be able to recover this imaginary file!",
+	            	    type: "warning",
+	            	    showCancelButton: true,
+	            	    confirmButtonText: "Yes, delete it!",
+	            	    cancelButtonText: "No, cancel plx!",
+	            	    closeOnConfirm: false,
+	            	    closeOnCancel: false
+	                },function(isConfirm){
+	                    if (isConfirm){
+	                        swal("Deleted!", "Your imaginary file has been deleted.", "success");
+	                    }else{
+	                        swal("Cancelled", "Your imaginary file is safe :)", "error");
+	                    }
+	                });
+
+	    	}else if(type == 'custom-html'){
+	        	swal({  title: 'HTML example',
+	                    html:
+	                        'You can use <b>bold text</b>, ' +
+	                        '<a href="http://github.com">links</a> ' +
+	                        'and other HTML tags'
+	                });
+
+	    	}else if(type == 'auto-close'){
+	        	swal({ title: "Auto close alert!",
+	            	   text: "I will close in 2 seconds.",
+	            	   timer: 2000,
+	            	   showConfirmButton: false
+	                });
+	    	} else if(type == 'input-field'){
+	            swal({
+	                  title: 'Input something',
+	                  html: '<p><input id="input-field" class="form-control">',
+	                  showCancelButton: true,
+	                  closeOnConfirm: false,
+	                  allowOutsideClick: false
+	                },
+	                function() {
+	                  swal({
+	                    html:
+	                      'You entered: <strong>' +
+	                      $('#input-field').val() +
+	                      '</strong>'
+	                  });
+	                })
+	        }
+		}
+		</script>
 </head>
 <body>
 
@@ -24,8 +197,9 @@
 			<div class="sidebar-wrapper">
 
 				<div class="user">
+				<a onclick="showSwal('photo-upload')">
 					<div class="photo">
-
+								
 						<c:if test="${nopicture == 'YES'}">
 							<img
 								src="<spring:url value="/resources/img/${userprofileimage}"/>" />
@@ -39,6 +213,7 @@
 
 
 					</div>
+					</a>
 					<div class="info">
 						<a data-toggle="collapse" href="#collapseExample"
 							class="collapsed"> ${username} <b class="caret"></b>
@@ -242,6 +417,83 @@
 					</div>
 				</div>
 			</nav>
+
+
+
+
+
+
+
+			<div class="swal2-container swal2-fade swal2-shown"
+				style="overflow-y: auto;">
+				<div role="dialog" aria-labelledby="modalTitleId"
+					aria-describedby="modalContentId" class="swal2-modal swal2-show"
+					tabindex="-1"
+					style="width: 500px; padding: 20px; background: rgb(255, 255, 255); display: block; min-height: 219px;">
+					<ul class="swal2-progresssteps" style="display: none;"></ul>
+					<div class="swal2-icon swal2-error" style="display: none;">
+						<span class="x-mark"><span class="line left"></span><span
+							class="line right"></span></span>
+					</div>
+					<div class="swal2-icon swal2-question" style="display: none;">?</div>
+					<div class="swal2-icon swal2-warning" style="display: none;">!</div>
+					<div class="swal2-icon swal2-info" style="display: none;">i</div>
+					<div class="swal2-icon swal2-success" style="display: none;">
+						<span class="line tip"></span> <span class="line long"></span>
+						<div class="placeholder"></div>
+						<div class="fix"></div>
+					</div>
+					<img class="swal2-image" style="display: none;">
+					<h2 class="swal2-title" id="modalTitleId">Select image</h2>
+					<div id="modalContentId" class="swal2-content"
+						style="display: none;">and upload as profile pic</div>
+					<input style="display: none;" accept="image/*" class="swal2-input"><input
+						type="file" style="display: block;" accept="image/*"
+						class="swal2-file" placeholder="">
+					<div class="swal2-range" style="display: none;">
+						<output></output>
+						<input type="range" accept="image/*">
+					</div>
+					<select style="display: none;" accept="image/*"
+						class="swal2-select"></select>
+					<div class="swal2-radio" style="display: none;"></div>
+					<label for="swal2-checkbox" class="swal2-checkbox"
+						style="display: none;"><input type="checkbox"
+						accept="image/*"></label>
+					<textarea style="display: none;" accept="image/*"
+						class="swal2-textarea"></textarea>
+					<div class="swal2-validationerror" style="display: none;"></div>
+					<hr class="swal2-spacer" style="display: block;">
+					<button type="button" role="button" tabindex="0"
+						class="swal2-confirm swal2-styled"
+						style="background-color: rgb(48, 133, 214); border-left-color: rgb(48, 133, 214); border-right-color: rgb(48, 133, 214);">OK</button>
+					<button type="button" role="button" tabindex="0"
+						class="swal2-cancel swal2-styled"
+						style="display: none; background-color: rgb(170, 170, 170);">Cancel</button>
+					<span class="swal2-close" style="display: none;">×</span>
+				</div>
+			</div>
+
+
+
+
+
+
+			<!-- 
+
+			<div class="col-md-3">
+                                <div class="card">
+                                    <div class="content text-center">
+                                        <h5>Basic example</h5>
+                                        <button class="btn btn-default btn-fill" onclick="showSwal('basic')">Try me!</button>
+                                    </div>
+                                </div>
+                            </div>
+			 -->
+
+
+
+
 
 
 			<div class="content">

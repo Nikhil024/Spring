@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.thbs.Beans.ImagesBean;
+import com.thbs.Beans.UserDetailsBean;
 import com.thbs.Beans.UsersBean;
 import com.thbs.Dao.ImagesDao;
+import com.thbs.Dao.UserDetailsDao;
 import com.thbs.Dao.UsersDao;
 import com.thbs.data.ExamConstants;
 import com.thbs.data.GetBeanContext;
@@ -29,6 +31,9 @@ public class ProfileController {
 
 	@Autowired
 	ImagesBean images;
+	
+	@Autowired
+	UserDetailsBean userdetails;
 
 	private final String VIEW_NAME = "profile";
 	private final String PROJECT_NAME = "projectname";
@@ -56,6 +61,7 @@ public class ProfileController {
 	GetBeanContext gbc = new GetBeanContext();
 	UsersDao userdao = gbc.getUserBeanContext();
 	ImagesDao imagesdao = gbc.getImagesBeanContext();
+	UserDetailsDao userdetailsdao = gbc.getuserDetailsBeanContext();
 
 
 
@@ -79,7 +85,11 @@ public class ProfileController {
 
 
 			for(UsersBean u : users){
-				model.addAttribute(USER_NAME,u.getName()); 
+				user.setId(u.getId());
+				user.setEmail(u.getEmail());
+				user.setName(u.getName());
+				user.setLastLogin(u.getLastLogin());
+				
 				List<ImagesBean> img = imagesdao.getAllImage(u.getId());
 				for(ImagesBean i :img){
 					images.setId(i.getId());
@@ -90,7 +100,33 @@ public class ProfileController {
 				}
 			}
 			
+			model.addAttribute(USER_NAME,user.getName()); 
 			
+			List<UserDetailsBean> ud = userdetailsdao.getAllUserDetails(user.getId());
+			
+				for(UserDetailsBean userdetils : ud){
+					userdetails.setAboutme(userdetils.getAboutme());
+					userdetails.setCity(userdetils.getCity());
+					userdetails.setCompanyname(userdetils.getCompanyname());
+					userdetails.setCountry(userdetils.getCountry());
+					userdetails.setEmail(userdetils.getEmail());
+					userdetails.setLastupdate(userdetils.getLastupdate());
+					userdetails.setLname(userdetils.getLname());
+					userdetails.setName(userdetils.getName());
+					userdetails.setPostalcode(userdetils.getPostalcode());
+				}
+			
+				if(userdetails!=null){
+					model.addAttribute(COMPANY,userdetails.getCompanyname());
+					model.addAttribute(EMAIL,userdetails.getEmail());
+					model.addAttribute(NAME,userdetails.getName());
+					model.addAttribute(LNAME,userdetails.getLname());
+					model.addAttribute(ADDRESS,userdetails.getAddress());
+					model.addAttribute(CITY,userdetails.getCity());
+					model.addAttribute(COUNTRY,userdetails.getCountry());
+					model.addAttribute(POSTAL_CODE,userdetails.getPostalcode());
+					model.addAttribute(ABOUT_ME,userdetails.getAboutme());
+				}
 			
 			if(images.getName() == null){
 				model.addAttribute(NO_PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);

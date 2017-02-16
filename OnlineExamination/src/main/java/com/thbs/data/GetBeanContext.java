@@ -6,6 +6,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 import com.thbs.Beans.UserDetailsBean;
 import com.thbs.Dao.EmailLinkEncryptionDao;
 import com.thbs.Dao.ImagesDao;
+import com.thbs.Dao.UserDetailsDao;
 import com.thbs.Dao.UsersDao;
 
 public class GetBeanContext {
@@ -29,8 +30,8 @@ public class GetBeanContext {
 	}
 	
 	
-	public UserDetailsBean getuserDetailsBeanContext(){
-		UserDetailsBean userdetailsDao = (UserDetailsBean)context.getBean("userdetailsDao");
+	public UserDetailsDao getuserDetailsBeanContext(){
+		UserDetailsDao userdetailsDao = (UserDetailsDao)context.getBean("userdetailsDao");
 		return userdetailsDao;
 	}
 	

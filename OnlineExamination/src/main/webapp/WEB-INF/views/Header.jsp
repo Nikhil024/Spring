@@ -43,6 +43,11 @@
 	rel='stylesheet' type='text/css'>
 <link href="<spring:url value="/resources/css/pe-icon-7-stroke.css"/>"
 	rel="stylesheet" />
+<link
+	href="<spring:url value="/resources/css/sweetalert2.min"/>"
+	rel="stylesheet" />	
+	
+	
 <script>
 	history.pushState(null, null, document.URL);
 	window.addEventListener('popstate', function() {
@@ -60,10 +65,11 @@
 	<script src="<spring:url value="/resources/js/bootstrap.min.js"/>"
 		type="text/javascript"></script>
 
-
+<script
+		src="<spring:url value="/resources/js/sweetalert2.min.js"/>">
+		</script>
 	<!--  Forms Validations Plugin -->
-	<script
-		src="<spring:url value="/resources/js/jquery.validate.min.js"/>"></script>
+	<script src="<spring:url value="/resources/js/jquery.validate.min.js"/>"></script>
 
 	<!--  Plugin for Date Time Picker and Full Calendar Plugin-->
 	<script src="<spring:url value="/resources/js/moment.min.js"/>"></script>

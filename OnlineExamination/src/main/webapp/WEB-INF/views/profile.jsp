@@ -38,7 +38,7 @@
 		<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.min.js">
 		</script>
-		<script>
+		<!-- <script>
 		function showSwal(type){
 	    	if(type == 'basic'){
 	    		swal.queue([{
@@ -89,19 +89,9 @@
 	    					  inputAttributes: {
 	    					    accept: 'image/*'
 	    					  }
-	    					}).then(function (file) {
-	    					  var reader = new FileReader
-	    					  reader.onload = function (e) {
-	    						  var result = e.target.result;
-	    						alert(reader);
-	    					    swal({
-	    					      imageUrl: e.target.result
-	    					      
-	    					    })
-	    					  }
-	    					  
-	    					  reader.readAsDataURL(file)
-	    					})
+	    					}).then(function(){
+	    			               window.location.href = 'savefiles.html';
+	    			           })
 	    			}, function (dismiss) {
 	    			  // dismiss can be 'cancel', 'overlay',
 	    			  // 'close', and 'timer'
@@ -179,7 +169,7 @@
 	                })
 	        }
 		}
-		</script>
+		</script> -->
 </head>
 <body>
 
@@ -464,9 +454,11 @@
 						class="swal2-textarea"></textarea>
 					<div class="swal2-validationerror" style="display: none;"></div>
 					<hr class="swal2-spacer" style="display: block;">
-					<button type="button" role="button" tabindex="0"
+					<a href="https://www.google.com">
+					<button type="submit" role="button" tabindex="0"
 						class="swal2-confirm swal2-styled"
 						style="background-color: rgb(48, 133, 214); border-left-color: rgb(48, 133, 214); border-right-color: rgb(48, 133, 214);">OK</button>
+					</a>
 					<button type="button" role="button" tabindex="0"
 						class="swal2-cancel swal2-styled"
 						style="display: none; background-color: rgb(170, 170, 170);">Cancel</button>
@@ -479,17 +471,6 @@
 
 
 
-			<!-- 
-
-			<div class="col-md-3">
-                                <div class="card">
-                                    <div class="content text-center">
-                                        <h5>Basic example</h5>
-                                        <button class="btn btn-default btn-fill" onclick="showSwal('basic')">Try me!</button>
-                                    </div>
-                                </div>
-                            </div>
-			 -->
 
 
 

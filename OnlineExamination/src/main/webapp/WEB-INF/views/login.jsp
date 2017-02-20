@@ -27,11 +27,19 @@
 				<a class="navbar-brand" href="<spring:url value="/"/>">${projectname}</a>
 			</div>
 			<div class="collapse navbar-collapse">
-
-				<ul class="nav navbar-nav navbar-right">
+				<c:if test="${registerComponentView == 'show'}">
+				<ul class="nav navbar-nav navbar-right animated bounceInDown">
 					<li><a href="<spring:url value="/register.html"/>">
 							Register </a></li>
 				</ul>
+				</c:if>
+				<c:if test="${success == 'show'}">
+				<ul class="nav navbar-nav navbar-right animated hinge">
+					<li><a href="<spring:url value="/register.html"/>">
+							Register </a></li>
+				</ul>
+				</c:if>
+				
 			</div>
 		</div>
 	</nav>
@@ -47,7 +55,7 @@
 					<div class="row">
 						<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
 							<form method="post" id="loginform"
-								action="<spring:url value="/login.html"/>" autocomplete="off">
+								action="<spring:url value="/login"/>" autocomplete="off">
 
 								<!--   if you want to have the card without animation please remove the ".card-hidden" class   -->
 								<div class="card card-hidden">

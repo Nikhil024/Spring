@@ -35,7 +35,8 @@ public class LoginController {
 	private final String REDIRECT_VALUE = "redirectValue";
 	private final String VIEW_NAME = "login";
 	private final String SUCCESS_VIEW_NAME = "profile";
-	
+	private final String REGISTER_COMPONENT_VIEW = "registerComponentView";
+	private final String SESSSION_EMAIL_NAME = "email";
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String getLogin(Model model) {
@@ -81,6 +82,7 @@ public class LoginController {
 		if(users.isEmpty()){
 			model.addAttribute(FAIL_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
 			model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,ExamConstants.NO_USER_EXIST);
+			model.addAttribute(REGISTER_COMPONENT_VIEW,ExamConstants.PAGE_DISPLAY_VALUE);
 			return VIEW_NAME;
 		}
 		String[] usertype = ExamConstants.USERTYPE.split(",");
@@ -96,7 +98,7 @@ public class LoginController {
 						}
 				model.addAttribute(SUCCESS_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
 				model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,"Hi "+u.getName()+", "+ExamConstants.STUDENT_LOGIN_SUCCESSFULL);
-				session.setAttribute("email", u.getEmail());
+				session.setAttribute(SESSSION_EMAIL_NAME, u.getEmail());
 				model.addAttribute(REDIRECT,ExamConstants.REDIRECT_VALUE);
 				model.addAttribute(EMAIL_VALUE,email);
 				model.addAttribute(REDIRECT_VALUE,SUCCESS_VIEW_NAME);

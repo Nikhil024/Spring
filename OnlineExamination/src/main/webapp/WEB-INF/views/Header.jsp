@@ -34,6 +34,10 @@
 <link href="<spring:url value="/resources/css/demo.css"/>"
 	rel="stylesheet" />
 
+<link href="<spring:url value="/resources/css/animate.css"/>"
+	rel="stylesheet" />
+
+
 
 <!--     Fonts and icons     -->
 <link

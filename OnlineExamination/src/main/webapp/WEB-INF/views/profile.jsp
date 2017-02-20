@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>  
 
 <!doctype html>
 <html lang="en">
@@ -188,7 +189,7 @@
 
 				<div class="user">
 				<a onclick="showSwal('photo-upload')">
-					<div class="photo">
+					<div class="photo animated lightSpeedIn">
 								
 						<c:if test="${nopicture == 'YES'}">
 							<img
@@ -206,7 +207,7 @@
 					</a>
 					<div class="info">
 						<a data-toggle="collapse" href="#collapseExample"
-							class="collapsed"> ${username} <b class="caret"></b>
+							class="collapsed animated lightSpeedIn"> ${username} <b class="caret"></b>
 						</a>
 						<div class="collapse" id="collapseExample">
 							<ul class="nav">
@@ -408,18 +409,13 @@
 				</div>
 			</nav>
 
-
-
-
-
-
-
+<%-- <form:form method="post" action="savefile" enctype="multipart/form-data">
 			<div class="swal2-container swal2-fade swal2-shown"
 				style="overflow-y: auto;">
 				<div role="dialog" aria-labelledby="modalTitleId"
 					aria-describedby="modalContentId" class="swal2-modal swal2-show"
 					tabindex="-1"
-					style="width: 500px; padding: 20px; background: rgb(255, 255, 255); display: block; min-height: 219px;">
+					style="width: 500px; padding: 20px; background: rgb(255, 255, 255); display: block; min-height: 204px;">
 					<ul class="swal2-progresssteps" style="display: none;"></ul>
 					<div class="swal2-icon swal2-error" style="display: none;">
 						<span class="x-mark"><span class="line left"></span><span
@@ -436,45 +432,38 @@
 					<img class="swal2-image" style="display: none;">
 					<h2 class="swal2-title" id="modalTitleId">Select image</h2>
 					<div id="modalContentId" class="swal2-content"
-						style="display: none;">and upload as profile pic</div>
-					<input style="display: none;" accept="image/*" class="swal2-input"><input
-						type="file" style="display: block;" accept="image/*"
-						class="swal2-file" placeholder="">
-					<div class="swal2-range" style="display: none;">
-						<output></output>
-						<input type="range" accept="image/*">
-					</div>
-					<select style="display: none;" accept="image/*"
-						class="swal2-select"></select>
-					<div class="swal2-radio" style="display: none;"></div>
-					<label for="swal2-checkbox" class="swal2-checkbox"
-						style="display: none;"><input type="checkbox"
-						accept="image/*"></label>
-					<textarea style="display: none;" accept="image/*"
-						class="swal2-textarea"></textarea>
+						style="display: none;"></div>
+					<input type="file" accept="image/*" class="swal2-file" placeholder="" style="display: block;">
 					<div class="swal2-validationerror" style="display: none;"></div>
 					<hr class="swal2-spacer" style="display: block;">
-					<a href="https://www.google.com">
-					<button type="submit" role="button" tabindex="0"
+					
+					<button type="submit" value="Upload" role="button" tabindex="0"
 						class="swal2-confirm swal2-styled"
 						style="background-color: rgb(48, 133, 214); border-left-color: rgb(48, 133, 214); border-right-color: rgb(48, 133, 214);">OK</button>
-					</a>
+						
+						
 					<button type="button" role="button" tabindex="0"
 						class="swal2-cancel swal2-styled"
 						style="display: none; background-color: rgb(170, 170, 170);">Cancel</button>
 					<span class="swal2-close" style="display: none;">×</span>
 				</div>
 			</div>
+</form:form> --%>
 
 
 
-
-
-
-
-
-
-
+<form:form method="post" action="savefile"
+								enctype="multipart/form-data" onSubmit="return Validate();">
+								<p>
+									<label for="image">Choose Image</label>
+								</p>
+								<p>
+									<input name="file" id="fileToUpload" type="file" />
+								</p>
+								<p>
+									<input type="submit" value="Upload">
+								</p>
+							</form:form>
 
 
 			<div class="content">

@@ -37,4 +37,7 @@
 	<bean id="sendemail" class="com.thbs.Beans.SendEmailBean"/>
 	<bean id="userdetails" class="com.thbs.Beans.UserDetailsBean"/>
 
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
+
 </beans>	

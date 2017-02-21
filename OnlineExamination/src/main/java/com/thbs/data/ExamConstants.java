@@ -55,7 +55,7 @@ public final class ExamConstants {
 	public static String UPDATE_IMAGE_QUERY = PropertiesfileReading.getProperty("UpdateImage");
 	public final static String SELECT_IMAGE_QUERY = PropertiesfileReading.getProperty("GetAllImages");
 	public final static String INSERT_USER_DETAILS = PropertiesfileReading.getProperty("InsertUserDetails");
-	public final static String UPDATE_USER_DETAILS = PropertiesfileReading.getProperty("UpdateUserDetails");
+	public static String UPDATE_USER_DETAILS = PropertiesfileReading.getProperty("UpdateUserDetails");
 	public final static String SELECT_USER_DETAILS = PropertiesfileReading.getProperty("SelectUserDetails");
 	
 	public static String NO_DATA = PropertiesfileReading.getProperty("NoData");

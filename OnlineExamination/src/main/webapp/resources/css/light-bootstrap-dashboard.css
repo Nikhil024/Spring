@@ -4407,6 +4407,7 @@ h1 .subtitle {
 .sidebar .user .photo img,
 .bootstrap-navbar .user .photo img {
   width: 100%;
+  height: 100%;
 }
 .sidebar .user a,
 .bootstrap-navbar .user a {

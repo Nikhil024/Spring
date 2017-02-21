@@ -99,6 +99,7 @@ public class LoginController {
 				model.addAttribute(SUCCESS_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
 				model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,"Hi "+u.getName()+", "+ExamConstants.STUDENT_LOGIN_SUCCESSFULL);
 				session.setAttribute(SESSSION_EMAIL_NAME, u.getEmail());
+				log.info("Session variable in login : "+session.getAttribute(SESSSION_EMAIL_NAME));
 				model.addAttribute(REDIRECT,ExamConstants.REDIRECT_VALUE);
 				model.addAttribute(EMAIL_VALUE,email);
 				model.addAttribute(REDIRECT_VALUE,SUCCESS_VIEW_NAME);

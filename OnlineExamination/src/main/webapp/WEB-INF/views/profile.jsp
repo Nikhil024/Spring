@@ -2,175 +2,49 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>  
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!doctype html>
 <html lang="en">
 <head>
+<title>Profile</title>
 <jsp:include page="Header.jsp"></jsp:include>
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.css"
-	rel="stylesheet" />	
-	
-	<link
+	rel="stylesheet" />
+
+<link
 	href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.min.css"
-	rel="stylesheet" />	
-	
-	
-	
+	rel="stylesheet" />
+
+
+
 <script
-		src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.common.js">
-		</script>
-		
-		
-		<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.common.min.js">
-		</script>
-		
-		<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.js">
-		</script>
-		
-		<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.min.css">
-		</script>
-		
-		
-		<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.min.js">
-		</script>
-		<!-- <script>
-		function showSwal(type){
-	    	if(type == 'basic'){
-	    		swal.queue([{
-	    			  title: 'Your public IP',
-	    			  confirmButtonText: 'Show my public IP',
-	    			  text:
-	    			    'Your public IP will be received ' +
-	    			    'via AJAX request',
-	    			  showLoaderOnConfirm: true,
-	    			  preConfirm: function () {
-	    			    return new Promise(function (resolve) {
-	    			      $.get('https://api.ipify.org?format=json')
-	    			        .done(function (data) {
-	    			          swal.insertQueueStep(data.ip)
-	    			          resolve()
-	    			        })
-	    			    })
-	    			  }
-	    			}])
+	src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.common.js">
+	
+</script>
 
-	    	}else if(type == 'password-notification'){
-	    		swal({
-	    			  title: 'Your\'e password shold be as follows',
-	    			  html: $('<div>')
-	    			    .addClass('some-class')
-	    			    .text('jQuery is everywhere.'),
-	    			  animation: false,
-	    			  customClass: 'animated tada'
-	    			})
 
-	    	}else if(type == 'photo-upload'){
-	    		swal({
-	    			  title: 'Select a photo',
-	    			  text: "and upload as profile pic",
-	    			  type: 'question',
-	    			  showCancelButton: true,
-	    			  confirmButtonColor: '#3085d6',
-	    			  cancelButtonColor: '#d33',
-	    			  confirmButtonText: 'Yes, Browse',
-	    			  cancelButtonText: 'No, cancel!',
-	    			  confirmButtonClass: 'btn btn-success',
-	    			  cancelButtonClass: 'btn btn-danger',
-	    			  buttonsStyling: false
-	    			}).then(function () {
-	    				swal({
-	    					  title: 'Select image',
-	    					  input: 'file',
-	    					  inputAttributes: {
-	    					    accept: 'image/*'
-	    					  }
-	    					}).then(function(){
-	    			               window.location.href = 'savefiles.html';
-	    			           })
-	    			}, function (dismiss) {
-	    			  // dismiss can be 'cancel', 'overlay',
-	    			  // 'close', and 'timer'
-	    			  if (dismiss === 'cancel') {
-	    			    swal(
-	    			      'Cancelled',
-	    			      'Good to hear! :)',
-	    			      'error'
-	    			    )
-	    			  }
-	    			})
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.common.min.js">
+	
+</script>
 
-	    	}else if(type == 'success-message'){
-	        	swal("Good job!", "You clicked the button!", "success")
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.js">
+	
+</script>
 
-	    	}else if(type == 'warning-message-and-confirmation'){
-	        	swal({  title: "Are you sure?",
-	            	    text: "You will not be able to recover this imaginary file!",
-	            	    type: "warning",
-	                    showCancelButton: true,
-	                    confirmButtonClass: "btn btn-info btn-fill",
-	                    confirmButtonText: "Yes, delete it!",
-	                    cancelButtonClass: "btn btn-danger btn-fill",
-	                    closeOnConfirm: false,
-	                },function(){
-	                    swal("Deleted!", "Your imaginary file has been deleted.", "success");
-	                });
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.min.css">
+	
+</script>
 
-	    	}else if(type == 'warning-message-and-cancel'){
-	        	swal({  title: "Are you sure?",
-	            	    text: "You will not be able to recover this imaginary file!",
-	            	    type: "warning",
-	            	    showCancelButton: true,
-	            	    confirmButtonText: "Yes, delete it!",
-	            	    cancelButtonText: "No, cancel plx!",
-	            	    closeOnConfirm: false,
-	            	    closeOnCancel: false
-	                },function(isConfirm){
-	                    if (isConfirm){
-	                        swal("Deleted!", "Your imaginary file has been deleted.", "success");
-	                    }else{
-	                        swal("Cancelled", "Your imaginary file is safe :)", "error");
-	                    }
-	                });
 
-	    	}else if(type == 'custom-html'){
-	        	swal({  title: 'HTML example',
-	                    html:
-	                        'You can use <b>bold text</b>, ' +
-	                        '<a href="http://github.com">links</a> ' +
-	                        'and other HTML tags'
-	                });
-
-	    	}else if(type == 'auto-close'){
-	        	swal({ title: "Auto close alert!",
-	            	   text: "I will close in 2 seconds.",
-	            	   timer: 2000,
-	            	   showConfirmButton: false
-	                });
-	    	} else if(type == 'input-field'){
-	            swal({
-	                  title: 'Input something',
-	                  html: '<p><input id="input-field" class="form-control">',
-	                  showCancelButton: true,
-	                  closeOnConfirm: false,
-	                  allowOutsideClick: false
-	                },
-	                function() {
-	                  swal({
-	                    html:
-	                      'You entered: <strong>' +
-	                      $('#input-field').val() +
-	                      '</strong>'
-	                  });
-	                })
-	        }
-		}
-		</script> -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.min.js">
+	
+</script>
 </head>
 <body>
 
@@ -188,26 +62,27 @@
 			<div class="sidebar-wrapper">
 
 				<div class="user">
-				<a onclick="showSwal('photo-upload')">
-					<div class="photo animated lightSpeedIn">
-								
-						<c:if test="${nopicture == 'YES'}">
-							<img
-								src="<spring:url value="/resources/img/${userprofileimage}"/>" />
-						</c:if>
+					<a href="<spring:url value="/upload"/>">
+						<div class="photo animated lightSpeedIn">
 
-						<c:if test="${picture == 'YES'}">
-							<img
-								src="<spring:url value="/images/profilePicture/${userprofileimage}"/>" />
-						</c:if>
+							<c:if test="${nopicture == 'YES'}">
+								<img
+									src="<spring:url value="/resources/img/${userprofileimage}"/>" />
+							</c:if>
+
+							<c:if test="${picture == 'YES'}">
+								<img
+									src="<spring:url value="/images/profile/${userprofileimage}"/>" width="100%" height="100%" />
+							</c:if>
 
 
 
-					</div>
+						</div>
 					</a>
 					<div class="info">
 						<a data-toggle="collapse" href="#collapseExample"
-							class="collapsed animated lightSpeedIn"> ${username} <b class="caret"></b>
+							class="collapsed animated lightSpeedIn"> ${username} <b
+							class="caret"></b>
 						</a>
 						<div class="collapse" id="collapseExample">
 							<ul class="nav">
@@ -316,154 +191,51 @@
 		</div>
 
 		<div class="main-panel">
-			<nav class="navbar navbar-default">
-				<div class="container-fluid">
-					<div class="navbar-minimize">
-						<button id="minimizeSidebar"
-							class="btn btn-warning btn-fill btn-round btn-icon">
-							<i class="fa fa-ellipsis-v visible-on-sidebar-regular"></i> <i
-								class="fa fa-navicon visible-on-sidebar-mini"></i>
-						</button>
-					</div>
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse">
-							<span class="sr-only">Toggle navigation</span> <span
-								class="icon-bar"></span> <span class="icon-bar"></span> <span
-								class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="#">Dashboard</a>
-					</div>
-					<div class="collapse navbar-collapse">
-
-						<form class="navbar-form navbar-left navbar-search-form"
-							role="search">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-search"></i></span>
-								<input type="text" value="" class="form-control"
-									placeholder="Search...">
-							</div>
-						</form>
-
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="../charts.html"> <i
-									class="fa fa-line-chart"></i>
-									<p>Stats</p>
-							</a></li>
-
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown"> <i class="fa fa-gavel"></i>
-									<p class="hidden-md hidden-lg">
-										Actions <b class="caret"></b>
-									</p>
-							</a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Create New Post</a></li>
-									<li><a href="#">Manage Something</a></li>
-									<li><a href="#">Do Nothing</a></li>
-									<li><a href="#">Submit to live</a></li>
-									<li class="divider"></li>
-									<li><a href="#">Another Action</a></li>
-								</ul></li>
-
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown"> <i class="fa fa-bell-o"></i> <span
-									class="notification">5</span>
-									<p class="hidden-md hidden-lg">
-										Notifications <b class="caret"></b>
-									</p>
-							</a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Notification 1</a></li>
-									<li><a href="#">Notification 2</a></li>
-									<li><a href="#">Notification 3</a></li>
-									<li><a href="#">Notification 4</a></li>
-									<li><a href="#">Another notification</a></li>
-								</ul></li>
-
-							<li class="dropdown dropdown-with-icons"><a href="#"
-								class="dropdown-toggle" data-toggle="dropdown"> <i
-									class="fa fa-list"></i>
-									<p class="hidden-md hidden-lg">
-										More <b class="caret"></b>
-									</p>
-							</a>
-								<ul class="dropdown-menu dropdown-with-icons">
-									<li><a href="#"> <i class="pe-7s-mail"></i> Messages
-									</a></li>
-									<li><a href="#"> <i class="pe-7s-help1"></i> Help
-											Center
-									</a></li>
-									<li><a href="#"> <i class="pe-7s-tools"></i> Settings
-									</a></li>
-									<li class="divider"></li>
-									<li><a href="#"> <i class="pe-7s-lock"></i> Lock
-											Screen
-									</a></li>
-									<li><a href="#" class="text-danger"> <i
-											class="pe-7s-close-circle"></i> Log out
-									</a></li>
-								</ul></li>
-
-						</ul>
-					</div>
-				</div>
-			</nav>
-
-<%-- <form:form method="post" action="savefile" enctype="multipart/form-data">
-			<div class="swal2-container swal2-fade swal2-shown"
-				style="overflow-y: auto;">
-				<div role="dialog" aria-labelledby="modalTitleId"
-					aria-describedby="modalContentId" class="swal2-modal swal2-show"
-					tabindex="-1"
-					style="width: 500px; padding: 20px; background: rgb(255, 255, 255); display: block; min-height: 204px;">
-					<ul class="swal2-progresssteps" style="display: none;"></ul>
-					<div class="swal2-icon swal2-error" style="display: none;">
-						<span class="x-mark"><span class="line left"></span><span
-							class="line right"></span></span>
-					</div>
-					<div class="swal2-icon swal2-question" style="display: none;">?</div>
-					<div class="swal2-icon swal2-warning" style="display: none;">!</div>
-					<div class="swal2-icon swal2-info" style="display: none;">i</div>
-					<div class="swal2-icon swal2-success" style="display: none;">
-						<span class="line tip"></span> <span class="line long"></span>
-						<div class="placeholder"></div>
-						<div class="fix"></div>
-					</div>
-					<img class="swal2-image" style="display: none;">
-					<h2 class="swal2-title" id="modalTitleId">Select image</h2>
-					<div id="modalContentId" class="swal2-content"
-						style="display: none;"></div>
-					<input type="file" accept="image/*" class="swal2-file" placeholder="" style="display: block;">
-					<div class="swal2-validationerror" style="display: none;"></div>
-					<hr class="swal2-spacer" style="display: block;">
-					
-					<button type="submit" value="Upload" role="button" tabindex="0"
-						class="swal2-confirm swal2-styled"
-						style="background-color: rgb(48, 133, 214); border-left-color: rgb(48, 133, 214); border-right-color: rgb(48, 133, 214);">OK</button>
-						
-						
-					<button type="button" role="button" tabindex="0"
-						class="swal2-cancel swal2-styled"
-						style="display: none; background-color: rgb(170, 170, 170);">Cancel</button>
-					<span class="swal2-close" style="display: none;">×</span>
-				</div>
-			</div>
-</form:form> --%>
+			<jsp:include page="navBar.jsp"></jsp:include>
+			
+			
+			
 
 
 
-<form:form method="post" action="savefile"
-								enctype="multipart/form-data" onSubmit="return Validate();">
-								<p>
-									<label for="image">Choose Image</label>
-								</p>
-								<p>
-									<input name="file" id="fileToUpload" type="file" />
-								</p>
-								<p>
-									<input type="submit" value="Upload">
-								</p>
-							</form:form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 			<div class="content">
@@ -483,7 +255,7 @@
 													src="<spring:url value="/resources/img/${userprofileimage}"/>" />
 											</c:if> <c:if test="${picture == 'YES'}">
 												<img class="avatar border-gray"
-													src="<spring:url value="/images/profilePicture/${userprofileimage}"/>" />
+													src="<spring:url value="/images/profile/${userprofileimage}"/>" />
 											</c:if>
 
 
@@ -514,29 +286,22 @@
 						<div class="col-md-8">
 							<div class="card">
 								<div class="header">
-									<h4 class="title">Edit Profile</h4>
+									<h4 class="title">Profile Details</h4>
 								</div>
 								<div class="content">
-									<form>
+									<form action="<spring:url value="/profile"/>" method="post" autocomplete="off">
 										<div class="row">
 											<div class="col-md-5">
 												<div class="form-group">
-													<label>Company (disabled)</label> <input type="text"
+													<label>Company</label> <input type="text"
 														class="form-control" disabled placeholder="Company"
-														value="Creative Code Inc.">
+														value="${company}">
 												</div>
 											</div>
-											<div class="col-md-3">
-												<div class="form-group">
-													<label>Username</label> <input type="text"
-														class="form-control" placeholder="Username"
-														value="michael23">
-												</div>
-											</div>
-											<div class="col-md-4">
+											<div class="col-md-6">
 												<div class="form-group">
 													<label for="exampleInputEmail1">Email address</label> <input
-														type="email" class="form-control" placeholder="Email">
+														type="email" name="email" class="form-control" disabled placeholder="Email" value="${email}">
 												</div>
 											</div>
 										</div>
@@ -545,14 +310,14 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>First Name</label> <input type="text"
-														class="form-control" placeholder="Company" value="Mike">
+														class="form-control" name="fname" placeholder="First Name" value="${fname}">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Last Name</label> <input type="text"
-														class="form-control" placeholder="Last Name"
-														value="Andrew">
+														class="form-control" name="lname" placeholder="Last Name"
+														value="${lname}">
 												</div>
 											</div>
 										</div>
@@ -562,28 +327,28 @@
 												<div class="form-group">
 													<label>Address</label> <input type="text"
 														class="form-control" placeholder="Home Address"
-														value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+														name="address" value="${address}">
 												</div>
 											</div>
 										</div>
-
+<p>asdas: ${userDetails}</p>
 										<div class="row">
 											<div class="col-md-4">
 												<div class="form-group">
 													<label>City</label> <input type="text" class="form-control"
-														placeholder="City" value="Mike">
+														name="city" placeholder="City" value="${city}">
 												</div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group">
 													<label>Country</label> <input type="text"
-														class="form-control" placeholder="Country" value="Andrew">
+														name="country" class="form-control" placeholder="Country" value="${country}">
 												</div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group">
 													<label>Postal Code</label> <input type="number"
-														class="form-control" placeholder="ZIP Code">
+														name="postalcode" class="form-control" placeholder="Postal Code" value="${postalcode}">
 												</div>
 											</div>
 										</div>
@@ -593,7 +358,7 @@
 												<div class="form-group">
 													<label>About Me</label>
 													<textarea rows="5" class="form-control"
-														placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+														name="aboutme" placeholder="Enter your description">${aboutme}</textarea>
 												</div>
 											</div>
 										</div>

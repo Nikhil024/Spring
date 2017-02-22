@@ -50,6 +50,9 @@ public class UploadController {
 	private final String NO_PICTURE = "nopicture";
 	private final String PICTURE = "picture";
 	private final String USER_NAME = "username";
+	private final String MESSAGE_MODEL_ATTRIBUTE = "data";
+	private final String FAIL_MODEL_ATTRIBUTE = "fail";
+	private final String NO_LOGIN_VIEW_NAME = "login";
 	GetBeanContext gc = new GetBeanContext();
 	UsersDao usersdao = gc.getUserBeanContext();
 	ImagesDao imagesdao = gc.getImagesBeanContext();
@@ -60,6 +63,11 @@ public class UploadController {
 		model.addAttribute(UPLOAD_INCLUDE_PAGE,UPLOAD_INCLUDE_PAGE_NAME);
 		
 		
+		if(session.getAttribute(SESSSION_EMAIL_NAME)==null){
+			model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,ExamConstants.NO_LOGIN_MESSAGE+" To Access The Profile Page.!");
+			model.addAttribute(FAIL_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
+			return NO_LOGIN_VIEW_NAME;
+		}
 		
 		log.info("Session variable in upload : "+session.getAttribute(SESSSION_EMAIL_NAME));
 

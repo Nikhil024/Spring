@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,25 +24,25 @@
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">Dashboard</a>
+						<a class="navbar-brand" href="<spring:url value="/dashboard"/>">${projectname}</a>
 					</div>
 					<div class="collapse navbar-collapse">
 
-						<form class="navbar-form navbar-left navbar-search-form"
+						<%-- <form class="navbar-form navbar-left navbar-search-form"
 							role="search">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-search"></i></span>
 								<input type="text" value="" class="form-control"
 									placeholder="Search...">
 							</div>
-						</form>
+						</form> --%>
 
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="../charts.html"> <i
 									class="fa fa-line-chart"></i>
 									<p>Stats</p>
 							</a></li>
-
+<!-- 
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown"> <i class="fa fa-gavel"></i>
 									<p class="hidden-md hidden-lg">
@@ -53,7 +56,7 @@
 									<li><a href="#">Submit to live</a></li>
 									<li class="divider"></li>
 									<li><a href="#">Another Action</a></li>
-								</ul></li>
+								</ul></li> -->
 
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown"> <i class="fa fa-bell-o"></i> <span
@@ -78,18 +81,18 @@
 									</p>
 							</a>
 								<ul class="dropdown-menu dropdown-with-icons">
-									<li><a href="#"> <i class="pe-7s-mail"></i> Messages
-									</a></li>
+									<!-- <li><a href="#"> <i class="pe-7s-mail"></i> Messages
+									</a></li> -->
 									<li><a href="#"> <i class="pe-7s-help1"></i> Help
 											Center
 									</a></li>
 									<li><a href="#"> <i class="pe-7s-tools"></i> Settings
 									</a></li>
 									<li class="divider"></li>
-									<li><a href="#"> <i class="pe-7s-lock"></i> Lock
+									<li><a href="<spring:url value="/lockscreen"/>"> <i class="pe-7s-lock"></i> Lock
 											Screen
 									</a></li>
-									<li><a href="#" class="text-danger"> <i
+									<li><a href="<spring:url value="/logout"/>" class="text-danger"> <i
 											class="pe-7s-close-circle"></i> Log out
 									</a></li>
 								</ul></li>
@@ -98,5 +101,19 @@
 					</div>
 				</div>
 			</nav>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 </body>
 </html>

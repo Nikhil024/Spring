@@ -10,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>Online Examination</title>
 
-<jsp:include page="Header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 </head>
 <body>
 

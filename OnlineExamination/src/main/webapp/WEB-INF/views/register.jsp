@@ -10,7 +10,7 @@
 
 <title>Regsiter</title>
 
-<jsp:include page="Header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 </head>
 <body>
 

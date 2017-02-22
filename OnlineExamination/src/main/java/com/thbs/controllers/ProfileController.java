@@ -37,6 +37,7 @@ public class ProfileController {
 	@Autowired
 	UserDetailsBean userdetails;
 
+	String pagename;
 	private final String VIEW_NAME = "profile";
 	private final String PROJECT_NAME = "projectname";
 	private final String BACKGROUND_IMAGE_NAME = "bgimagename";
@@ -57,6 +58,7 @@ public class ProfileController {
 	private final String COUNTRY = "country";
 	private final String POSTAL_CODE = "postalcode";
 	private final String ABOUT_ME = "aboutme";
+	private final String CURRENT_PAGE = "currentpage";
 	
 	
 	
@@ -70,9 +72,11 @@ public class ProfileController {
 
 	@RequestMapping(value = "/profile", method = RequestMethod.GET)
 	public String getPorfile(Model model,HttpSession session){
+		
 		model.addAttribute(PROJECT_NAME,ExamConstants.PROJECT_NAME);
 		model.addAttribute(BACKGROUND_IMAGE_NAME,ExamConstants.BACKGROUND_IMAGE);
 		
+		session.setAttribute(CURRENT_PAGE, VIEW_NAME);
 		
 
 		if(session.getAttribute(SESSION_AND_MODEL_EMAIL_VARIABLE)==null){
@@ -103,6 +107,8 @@ public class ProfileController {
 			}
 			
 			model.addAttribute(USER_NAME,user.getName()); 
+			model.addAttribute(COMPANY_NAME,ExamConstants.COMPANY_NAME);
+			model.addAttribute(EMAIL,user.getEmail());
 			
 			
 			List<UserDetailsBean> ud = userdetailsdao.getAllUserDetails(user.getId());
@@ -110,8 +116,7 @@ public class ProfileController {
 			if(!ud.isEmpty()){
 				for(UserDetailsBean userdetls : ud){
 					model.addAttribute(FIRST_NAME,userdetls.getName());
-					model.addAttribute(COMPANY_NAME,ExamConstants.COMPANY_NAME);
-					model.addAttribute(EMAIL,user.getEmail());
+					log.info("Name from DB : "+userdetls.getName());
 					model.addAttribute(LAST_NAME,userdetls.getLname());
 					model.addAttribute(ADDRESS,userdetls.getAddress());
 					model.addAttribute(CITY,userdetls.getCity());
@@ -185,14 +190,17 @@ public class ProfileController {
 		
 		if(userdetailsBean.isEmpty()){
 		int count = userdetailsdao.insertUserDetails(userdetails);
+		log.info("Count for insert "+count);
+		return "redirect:"+VIEW_NAME;
 		}
 		else{
-			ExamConstants.UPDATE_USER_DETAILS = ExamConstants.UPDATE_USER_DETAILS.replace("coulumnname_withvalue", "FNAME='"+userdetails.getName()+"',LNAME='"+userdetails.getLname()+"',EMAIL='"+userdetails.getEmail()+"',ADDRESS='"+userdetails.getAddress()+"',CITY='"+userdetails.getAddress()+"',COUNTRY='"+userdetails.getCountry()+"',POSTALCODE='"+userdetails.getPostalcode()+"',ABOUTME='"+userdetails.getAboutme()+"'");
+			ExamConstants.UPDATE_USER_DETAILS = ExamConstants.UPDATE_USER_DETAILS.replace("coulumnname_withvalue", "FNAME='"+firstName+"',LNAME='"+lastName+"',EMAIL='"+userdetails.getEmail()+"',ADDRESS='"+address+"',CITY='"+city+"',COUNTRY='"+country+"',POSTALCODE='"+postalCode+"',ABOUTME='"+aboutMe+"'");
 			log.info("UpdateUserDetails Query: "+ExamConstants.UPDATE_USER_DETAILS);
 			int count = userdetailsdao.UpdateUserDetails(ExamConstants.UPDATE_USER_DETAILS, user.getId());
+			log.info("Count for update "+count);
+			return "redirect:"+VIEW_NAME;
 		}
 		
-		return VIEW_NAME;
 	}
 
 }

@@ -10,39 +10,33 @@
 <title>Profile</title>
 <jsp:include page="Header.jsp"></jsp:include>
 <link
-	href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.css"
-	rel="stylesheet" />
+	href="<spring:url value="/resources/css/sweetalert2.css"/>" rel="stylesheet" />
 
 <link
-	href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.min.css"
+	href="<spring:url value="/resources/css/sweetalert2.min.css"/>"
 	rel="stylesheet" />
 
 
 
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.common.js">
+	src="<spring:url value="/resources/js/sweetalert2.common.js"/>">
 	
 </script>
 
 
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.common.min.js">
+	src="<spring:url value="/resources/js/sweetalert2.common.min.js"/>">
 	
 </script>
 
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.js">
-	
-</script>
-
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.min.css">
+	src="<spring:url value="/resources/js/sweetalert2.js"/>">
 	
 </script>
 
 
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.min.js">
+	src="<spring:url value="/resources/js/sweetalert2.min.js"/>">
 	
 </script>
 </head>

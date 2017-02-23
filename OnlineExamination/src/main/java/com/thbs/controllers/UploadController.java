@@ -117,10 +117,11 @@ public class UploadController {
 			List<ImagesBean> imgb = imagesdao.getAllImage(users.getId());
 
 			log.info("catalinahomelocation: "+ExamConstants.CATILANA_HOME_LOCATION);
-
-			image_in_file_system = new File(ExamConstants.PROFILE_IMAGE_STORED_LCOATION);
+			if (SystemUtils.IS_OS_WINDOWS) {
+			image_in_file_system = new File(ExamConstants.WINDOWS_PROFILE_IMAGE_STORED_LCOATION);
+			}
 			if (SystemUtils.IS_OS_LINUX) {
-				image_in_file_system = new File(ExamConstants.PROFILE_IMAGE_STORED_LCOATION);
+				image_in_file_system = new File(ExamConstants.LINUX_PROFILE_IMAGE_STORED_LCOATION);
 				log.info("OS is Linux based, image Storage Location is set to : "+image_in_file_system);
 			}
 
@@ -133,7 +134,7 @@ public class UploadController {
 				if (!file.isEmpty()) {
 					images.setId(users.getId());
 					images.setName(users.getName());
-					images.setLocation(ExamConstants.PROFILE_IMAGE_STORED_LCOATION);
+					images.setLocation(image_in_file_system.getAbsolutePath());
 					images.setUploadDate(CurrentDate.getCurrentDate());
 					if(imgb.isEmpty()){
 						imagesdao.insertImage(images);

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.apache.commons.lang3.SystemUtils;
 import org.apache.log4j.Logger;
 
 public class PropertiesfileReading {
@@ -17,9 +18,13 @@ public class PropertiesfileReading {
 	try {
 		//used to get the working directory of the catalina
 		String strClassPath = System.getProperty("catalina.base");
-		
+		if(SystemUtils.IS_OS_LINUX){
 		//appending the location of config.properties to the catalina home directory
-		strClassPath = strClassPath + "\\wtpwebapps\\OnlineExamination\\resources\\config.properties"; 
+		strClassPath = "/" + strClassPath + "/wtpwebapps/OnlineExamination/resources/config.properties";
+		}
+		if(SystemUtils.IS_OS_WINDOWS){
+			strClassPath = strClassPath + "\\wtpwebapps\\OnlineExamination\\resources\\config.properties";
+		}
 		input = new FileInputStream(strClassPath);
 
 		// load a properties file

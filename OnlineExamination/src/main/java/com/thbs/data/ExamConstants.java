@@ -43,12 +43,16 @@ public final class ExamConstants {
 	public final static String AFTER_VERIFICATION_VALUE = PropertiesfileReading.getProperty("AfterVerificationValue");
 	public final static String LOGIN_AS_STUDENT = PropertiesfileReading.getProperty("LoginAsStudent"); 
 	public final static String MODEL_ATTRIBUTE = "data";
-	public final static String PIE_CHART_STORE_LOCATION = PropertiesfileReading.getProperty("PieChartStoreLocation");
-	public final static String PROFILE_IMAGE_STORE_LCOATION = PropertiesfileReading.getProperty("ProfileImageStoreLocation");
+	public final static String WINDOWS_PIE_CHART_STORE_LOCATION = PropertiesfileReading.getProperty("WindowsPieChartStoreLocation");
+	public final static String LINUX_PIE_CHART_STORE_LOCATION = PropertiesfileReading.getProperty("LinuxPieChartStoreLocation");
+	public final static String WINDOWS_PROFILE_IMAGE_STORE_LCOATION = PropertiesfileReading.getProperty("WindowsProfileImageStoreLocation");
+	public final static String LINUX_PROFILE_IMAGE_STORE_LCOATION = PropertiesfileReading.getProperty("LinuxProfileImageStoreLocation");
+	
 	public final static String NO_LOGIN_MESSAGE = PropertiesfileReading.getProperty("NoLoginMessage");
 	public final static String CATILANA_HOME_LOCATION = System.getProperty("catalina.home");
-	public final static String PIE_CHART_STORED_LOCATION = CATILANA_HOME_LOCATION + PIE_CHART_STORE_LOCATION;
-	public final static String PROFILE_IMAGE_STORED_LCOATION = CATILANA_HOME_LOCATION + PROFILE_IMAGE_STORE_LCOATION;
+	public final static String WINDOWS_PIE_CHART_STORED_LOCATION = CATILANA_HOME_LOCATION + WINDOWS_PIE_CHART_STORE_LOCATION;
+	public final static String WINDOWS_PROFILE_IMAGE_STORED_LCOATION = CATILANA_HOME_LOCATION + WINDOWS_PROFILE_IMAGE_STORE_LCOATION;
+	public final static String LINUX_PROFILE_IMAGE_STORED_LCOATION = CATILANA_HOME_LOCATION + LINUX_PROFILE_IMAGE_STORE_LCOATION;
 	public final static String JPEG_IMAGE_EXTENSION = PropertiesfileReading.getProperty("JPEGImageExtension");
 	public final static String FIRST_TIME_PROFILE_AND_NO_PROFILE_PICTURE = PropertiesfileReading.getProperty("FirstTimeProfileAndNoProfilePicture");
 	public final static String INSERT_IMAGE_QUERY = PropertiesfileReading.getProperty("InsertImage");

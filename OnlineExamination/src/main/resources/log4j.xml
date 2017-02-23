@@ -8,7 +8,7 @@
 	   <param name="maxFileSize" value="10KB" />
 	   <param name="maxBackupIndex" value="5" />
 	   <!-- For Tomcat -->
-	   <param name="file" value="D:/logs/OnlineExamination.log" />
+	   <param name="file" value="/home/nikhil/Desktop/OnlineExamination.log" />
 	   <layout class="org.apache.log4j.PatternLayout">
 		<param name="ConversionPattern"
 			value="%-5p %d{yyyy-MM-dd HH:mm:ss} %c:%L - [%M] - %m%n" />

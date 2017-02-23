@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.apache.commons.lang3.SystemUtils;
 import org.knowm.xchart.BitmapEncoder;
 import org.knowm.xchart.BitmapEncoder.BitmapFormat;
 import org.knowm.xchart.PieChart;
@@ -24,8 +25,14 @@ public class Pie {
     // Create Chart
     PieChart chart = new PieChartBuilder().build();
     
+    if(SystemUtils.IS_OS_LINUX){
+    imagestorelocation = new File(ExamConstants.LINUX_PIE_CHART_STORE_LOCATION);
+    }
     
-    imagestorelocation = new File(ExamConstants.PIE_CHART_STORED_LOCATION);
+    if(SystemUtils.IS_OS_WINDOWS){
+    	imagestorelocation = new File(ExamConstants.WINDOWS_PIE_CHART_STORED_LOCATION);
+    }
+    
     
     if (!imagestorelocation.exists()) {
 		imagestorelocation.mkdirs();

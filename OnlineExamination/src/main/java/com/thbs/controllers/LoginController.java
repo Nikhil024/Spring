@@ -21,7 +21,7 @@ import com.thbs.data.MD5;
 
 @Controller
 public class LoginController {
-	
+
 	private static final Logger log = LoggerFactory.getLogger(LoginController.class);
 	GetBeanContext gbc = new GetBeanContext();
 	UsersDao userdao = gbc.getUserBeanContext();
@@ -37,9 +37,10 @@ public class LoginController {
 	private final String SUCCESS_VIEW_NAME = "profile";
 	private final String REGISTER_COMPONENT_VIEW = "registerComponentView";
 	private final String SESSSION_EMAIL_NAME = "email";
-	
+	private final String CURRENT_PAGE_SESSION_NAME = "currentpage";
+
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String getLogin(Model model) {
+	public String getLogin(Model model,HttpSession session) {
 		model.addAttribute(PROJECT_NAME,ExamConstants.PROJECT_NAME);
 		model.addAttribute(BACKGROUND_IMAGE_NAME,ExamConstants.BACKGROUND_IMAGE);
 		return VIEW_NAME;
@@ -52,33 +53,33 @@ public class LoginController {
 		log.info("email: "+email);
 		log.info("password: "+password);
 		log.info("subscribe: "+subscribe);
-		
+
 		if((password.equals("")||password == null) && (email.equals("")||email == null)){
 			model.addAttribute(FAIL_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
 			model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,ExamConstants.NO_DATA+" the data");
 			return VIEW_NAME;
 		}
-		
-		
+
+
 		if(password.equals("")||password == null){
 			model.addAttribute("email_value",email);
 			model.addAttribute(FAIL_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
 			model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,ExamConstants.NO_DATA+" password");
 			return VIEW_NAME;
 		}
-		
+
 		if(email.equals("")||email == null){
 			model.addAttribute(FAIL_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
 			model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,ExamConstants.NO_DATA+" email");
 			return VIEW_NAME;
 		}
-		
-		
-		
-		
-		
+
+
+
+
+
 		List<UsersBean> users = userdao.getUserDetails(email);
-		
+
 		if(users.isEmpty()){
 			model.addAttribute(FAIL_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
 			model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,ExamConstants.NO_USER_EXIST);
@@ -88,50 +89,51 @@ public class LoginController {
 		String[] usertype = ExamConstants.USERTYPE.split(",");
 		for(UsersBean u : users){
 			if(u.getUserType().equals(usertype[0])){
-			if(u.getEmailVerified().equals(ExamConstants.AFTER_VERIFICATION_VALUE)){
-				if(u.getEmail().equals(email)){
-					if(u.getPassword().equals(MD5.encryption(password))){
-						if(u.getSubscribed()!=null){
-						if(subscribe!=null){
-				userdao.updateUserColumn(ExamConstants.UPDATE_USER_SUBSCRIBED, u.getId());
+				if(u.getEmailVerified().equals(ExamConstants.AFTER_VERIFICATION_VALUE)){
+					if(u.getEmail().equals(email)){
+						if(u.getPassword().equals(MD5.encryption(password))){
+							if(u.getSubscribed()!=null){
+								if(subscribe!=null){
+									userdao.updateUserColumn(ExamConstants.UPDATE_USER_SUBSCRIBED, u.getId());
+								}
+							}
+							model.addAttribute(SUCCESS_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
+							model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,"Hi "+u.getName()+", "+ExamConstants.STUDENT_LOGIN_SUCCESSFULL);
+							session.setAttribute(SESSSION_EMAIL_NAME, u.getEmail());
+							log.info("Session variable in login : "+session.getAttribute(SESSSION_EMAIL_NAME));
+							model.addAttribute(REDIRECT,ExamConstants.REDIRECT_VALUE);
+							model.addAttribute(EMAIL_VALUE,email);
+							model.addAttribute(REDIRECT_VALUE,SUCCESS_VIEW_NAME);
+							session.setAttribute(CURRENT_PAGE_SESSION_NAME,VIEW_NAME);
+							return VIEW_NAME;
+
 						}
+						else{
+							model.addAttribute(FAIL_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
+							model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,ExamConstants.LOGIN_PASSWORD_FAIL);
+							model.addAttribute(EMAIL_VALUE, u.getEmail());
+							return VIEW_NAME;
 						}
-				model.addAttribute(SUCCESS_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
-				model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,"Hi "+u.getName()+", "+ExamConstants.STUDENT_LOGIN_SUCCESSFULL);
-				session.setAttribute(SESSSION_EMAIL_NAME, u.getEmail());
-				log.info("Session variable in login : "+session.getAttribute(SESSSION_EMAIL_NAME));
-				model.addAttribute(REDIRECT,ExamConstants.REDIRECT_VALUE);
-				model.addAttribute(EMAIL_VALUE,email);
-				model.addAttribute(REDIRECT_VALUE,SUCCESS_VIEW_NAME);
-				return VIEW_NAME;
-					
 					}
 					else{
 						model.addAttribute(FAIL_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
-						model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,ExamConstants.LOGIN_PASSWORD_FAIL);
-						model.addAttribute(EMAIL_VALUE, u.getEmail());
+						model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,ExamConstants.NO_USER_EXIST);
 						return VIEW_NAME;
 					}
 				}
-				else{
-					model.addAttribute(FAIL_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
-					model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,ExamConstants.NO_USER_EXIST);
-					return VIEW_NAME;
-				}
 			}
-		}
 			else{
 				model.addAttribute(FAIL_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
 				model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,ExamConstants.NO_USER_EXIST);
 				return VIEW_NAME;
 			}
 		}
-		
+
 		return VIEW_NAME;
 	}
-	
-	
-	
-	
+
+
+
+
 
 }

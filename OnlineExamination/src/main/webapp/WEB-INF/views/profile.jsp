@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
 <title>Profile</title>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="Header.jsp"></jsp:include>
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.4.2/sweetalert2.css"
 	rel="stylesheet" />

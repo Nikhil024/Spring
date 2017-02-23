@@ -6,7 +6,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="Header.jsp"/>
 </head>
 <body>
 

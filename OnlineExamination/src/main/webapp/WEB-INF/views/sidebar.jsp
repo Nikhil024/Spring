@@ -7,7 +7,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
 </head>
 <body>
 
@@ -37,20 +36,29 @@
 							class="collapsed animated tada"> ${username} <b
 							class="caret"></b>
 						</a>
-						<div class="collapse" id="collapseExample">
+						 <div class="collapse" id="collapseExample">
 							<ul class="nav">
-								<li><a href="#">My Profile</a></li>
-								<li><a href="#">Edit Profile</a></li>
-								<li><a href="#">Settings</a></li>
+								<li><a href="<spring:url value="/profile"/>">My Profile</a></li>
+								<li><a href="<spring:url value="/dashboard"/>">Dashboard</a></li>
+								<li><a href="<spring:url value="/"/>">Settings</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 
 				<ul class="nav">
-					<li><a href="../dashboard.html"> <i class="pe-7s-graph"></i>
+					<li><a href="<spring:url value="/dashboard"/>"> <i class="pe-7s-display1"></i>
 							<p>Dashboard</p>
 					</a></li>
+					<li><a href=""><i class="pe-7s-news-paper"></i>
+					<p>Mock Questions</p>
+					</a></li>
+					<li><a href="<spring:url value="/exam"/>"><i class="pe-7s-study"></i>
+					<p>Take Exam</p>
+					
+					</a>
+					</li>
+					<!-- 
 					<li><a data-toggle="collapse" href="#componentsExamples">
 							<i class="pe-7s-plugin"></i>
 							<p>
@@ -139,7 +147,7 @@
 								<li><a href="#">More coming soon...</a></li>
 							</ul>
 						</div></li>
-				</ul>
+				</ul> -->
 			</div> 
 
 </body>

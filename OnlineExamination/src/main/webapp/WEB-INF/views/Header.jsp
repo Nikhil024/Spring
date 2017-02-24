@@ -48,7 +48,7 @@
 <link href="<spring:url value="/resources/css/pe-icon-7-stroke.css"/>"
 	rel="stylesheet" />
 <link
-	href="<spring:url value="/resources/css/sweetalert2.min"/>"
+	href="<spring:url value="/resources/css/sweetalert2.min.css"/>"
 	rel="stylesheet" />	
 	
 	

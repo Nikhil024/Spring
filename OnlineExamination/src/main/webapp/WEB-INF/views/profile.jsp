@@ -8,35 +8,33 @@
 <html lang="en">
 <head>
 <title>Profile</title>
-<jsp:include page="Header.jsp"></jsp:include>
-<link
-	href="<spring:url value="/resources/css/sweetalert2.css"/>" rel="stylesheet" />
+<jsp:include page="Header.jsp" />
+<!--  Plugin for Date Time Picker and Full Calendar Plugin-->
+	<script src="<spring:url value="/resources/js/moment.min.js"/>"></script>
 
-<link
-	href="<spring:url value="/resources/css/sweetalert2.min.css"/>"
+	<!--  Date Time Picker Plugin is included in this js file -->
+	<script
+		src="<spring:url value="/resources/js/bootstrap-datetimepicker.js"/>"></script>
+<link href="<spring:url value="/resources/css/sweetalert2.css"/>"
 	rel="stylesheet" />
 
+<link href="<spring:url value="/resources/css/sweetalert2.min.css"/>"
+	rel="stylesheet" />
 
-
-<script
-	src="<spring:url value="/resources/js/sweetalert2.common.js"/>">
+<script src="<spring:url value="/resources/js/sweetalert2.common.js"/>">
 	
 </script>
-
 
 <script
 	src="<spring:url value="/resources/js/sweetalert2.common.min.js"/>">
 	
 </script>
 
-<script
-	src="<spring:url value="/resources/js/sweetalert2.js"/>">
+<script src="<spring:url value="/resources/js/sweetalert2.js"/>">
 	
 </script>
 
-
-<script
-	src="<spring:url value="/resources/js/sweetalert2.min.js"/>">
+<script src="<spring:url value="/resources/js/sweetalert2.min.js"/>">
 	
 </script>
 </head>
@@ -52,59 +50,12 @@
 
         -->
 
-
-<jsp:include page="sidebar.jsp"></jsp:include>
+			<jsp:include page="sidebar.jsp"></jsp:include>
 		</div>
 
-
-			
-				
 		<div class="main-panel">
-			 <jsp:include page="navBar.jsp"></jsp:include>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			<jsp:include page="navBar.jsp"></jsp:include>
 
 			<div class="content">
 				<div class="container-fluid">
@@ -118,8 +69,8 @@
 								</div>
 								<div class="content">
 									<div class="author">
-										<a href="<spring:url value="/upload"/>">
-										 <c:if test="${nopicture == 'YES'}">
+										<a href="<spring:url value="/upload"/>"> <c:if
+												test="${nopicture == 'YES'}">
 												<img class="avatar border-gray"
 													src="<spring:url value="/resources/img/${userprofileimage}"/>" />
 											</c:if> <c:if test="${picture == 'YES'}">
@@ -132,9 +83,7 @@
 											</h4>
 										</a>
 									</div>
-									<p class="description text-center">
-										${aboutme}
-									</p>
+									<p class="description text-center">${aboutme}</p>
 								</div>
 								<hr>
 								<div class="text-center">
@@ -157,7 +106,8 @@
 									<h4 class="title">Profile Details</h4>
 								</div>
 								<div class="content">
-									<form action="<spring:url value="/profile"/>" method="post" autocomplete="off">
+									<form action="<spring:url value="/profile"/>" method="post"
+										autocomplete="off">
 										<div class="row">
 											<div class="col-md-5">
 												<div class="form-group">
@@ -169,29 +119,38 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label for="exampleInputEmail1">Email address</label> <input
-														type="email" name="email" class="form-control" disabled placeholder="Email" value="${email}">
+														type="email" name="email" class="form-control" disabled
+														placeholder="Email" value="${email}">
 												</div>
 											</div>
 										</div>
 
 										<div class="row">
-											<div class="col-md-6">
+											<div class="col-md-4">
 												<div class="form-group">
 													<label>First Name</label> <input type="text"
-														class="form-control" name="fname" placeholder="First Name" value="${fname}">
+														class="form-control" name="fname" placeholder="First Name"
+														value="${fname}">
 												</div>
 											</div>
-											<div class="col-md-6">
+											<div class="col-md-4">
 												<div class="form-group">
 													<label>Last Name</label> <input type="text"
 														class="form-control" name="lname" placeholder="Last Name"
 														value="${lname}">
 												</div>
 											</div>
+											<div class="col-md-4">
+								
+								<div class="form-group">
+								<label>Date Of Birth</label> 
+									<input type="text" class="form-control datepicker" placeholder="Date Picker Here"/>
+								</div>
 										</div>
+										
 
 										<div class="row">
-											<div class="col-md-12">
+											<div class="col-md-11">
 												<div class="form-group">
 													<label>Address</label> <input type="text"
 														class="form-control" placeholder="Home Address"
@@ -208,14 +167,16 @@
 											</div>
 											<div class="col-md-4">
 												<div class="form-group">
-													<label>Country</label> <input type="text"
-														name="country" class="form-control" placeholder="Country" value="${country}">
+													<label>Country</label> <input type="text" name="country"
+														class="form-control" placeholder="Country"
+														value="${country}">
 												</div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group">
 													<label>Postal Code</label> <input type="number"
-														name="postalcode" class="form-control" placeholder="Postal Code" value="${postalcode}">
+														name="postalcode" class="form-control"
+														placeholder="Postal Code" value="${postalcode}">
 												</div>
 											</div>
 										</div>
@@ -224,22 +185,24 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<label>About Me</label>
-													<textarea rows="5" class="form-control"
-														name="aboutme" placeholder="Enter your description">${aboutme}</textarea>
+													<textarea rows="5" class="form-control" name="aboutme"
+														placeholder="Enter your description">${aboutme}</textarea>
 												</div>
 											</div>
 										</div>
 
 										<button type="submit" class="btn btn-info btn-fill pull-right">Update
-											Profile</button><br/><div class="fb-like"
-				data-href="https://developers.facebook.com/docs/plugins/"
-				data-layout="standard" data-action="like" data-size="small"
-				data-show-faces="true" data-share="true"></div>
+											Profile</button>
+										<br />
+										<div class="fb-like"
+											data-href="https://developers.facebook.com/docs/plugins/"
+											data-layout="standard" data-action="like" data-size="small"
+											data-show-faces="true" data-share="true"></div>
 										<div class="clearfix"></div>
 									</form>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 				</div>

@@ -64,7 +64,7 @@
 					<br />
 					<br />
 					<br />
-					<br /> <a href="<spring:url value="/login.html"/>"
+					<br /> <a href="<spring:url value="/login"/>"
 						class="button button-3d button-glow button-action button-pill button-large"><span
 						class="btn-label btn-label-right"> <i
 							class="pe-7s-add-user"></i>

@@ -35,6 +35,7 @@ public class DashboardController {
 	GetBeanContext gbc = new GetBeanContext();
 	UsersDao userdao = gbc.getUserBeanContext();
 	ImagesDao imagesdao = gbc.getImagesBeanContext();
+	
 	private final String VIEW_NAME = "dashboard";
 	private final String NO_LOGIN_VIEW_NAME = "login";
 	private final String PROJECT_NAME = "projectname";
@@ -116,8 +117,16 @@ public class DashboardController {
 			
 			session.setAttribute(CURRENT_PAGE_SESSION_NAME, VIEW_NAME);
 		 
-		 
-		 return VIEW_NAME;
+			if(images.getName() == null){
+				model.addAttribute(NO_PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
+				model.addAttribute(USER_PROFILE_PICTURE,ExamConstants.FIRST_TIME_PROFILE_AND_NO_PROFILE_PICTURE); 
+				return VIEW_NAME;
+			}
+			else{
+				model.addAttribute(PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
+				model.addAttribute(USER_PROFILE_PICTURE,images.getName()+ExamConstants.JPEG_IMAGE_EXTENSION);
+				return VIEW_NAME;
+			}
 		}
 		
 		return VIEW_NAME;

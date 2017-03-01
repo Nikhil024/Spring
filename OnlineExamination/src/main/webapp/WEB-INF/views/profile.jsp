@@ -79,8 +79,8 @@
 											</c:if>
 
 
-											<h4 class="title">${username}<br /> <small>${email}</small>
-											</h4>
+											<h4 class="title">${username}<br /> <small>${email}</small></h4>
+											
 										</a>
 									</div>
 									<p class="description text-center">${aboutme}</p>
@@ -140,6 +140,7 @@
 														value="${lname}">
 												</div>
 											</div>
+											
 											<div class="col-md-4">
 								
 								<div class="form-group">
@@ -147,7 +148,7 @@
 									<input type="text" class="form-control datepicker" placeholder="Date Picker Here"/>
 								</div>
 										</div>
-										
+										</div>
 
 										<div class="row">
 											<div class="col-md-11">
@@ -200,9 +201,10 @@
 											data-show-faces="true" data-share="true"></div>
 										<div class="clearfix"></div>
 									</form>
+									
 								</div>
 							</div>
-
+							
 						</div>
 					</div>
 				</div>

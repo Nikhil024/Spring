@@ -99,6 +99,8 @@ public class ProfileController {
 					images.setName(i.getName());
 					images.setLocation(i.getLocation());
 					images.setUploadDate(i.getUploadDate());
+					images.setPiechart(i.getPiechart());
+					images.setProfilepicture(i.getProfilepicture());
 					images.setLastupdateDate(i.getLastupdateDate());
 				}
 			}
@@ -141,15 +143,13 @@ public class ProfileController {
 				}
 			}
 			
-			if(images.getName() == null){
+			if(images.getProfilepicture() == null){
 				model.addAttribute(NO_PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
 				model.addAttribute(USER_PROFILE_PICTURE,ExamConstants.FIRST_TIME_PROFILE_AND_NO_PROFILE_PICTURE); 
-				return VIEW_NAME;
 			}
 			else{
 				model.addAttribute(PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
 				model.addAttribute(USER_PROFILE_PICTURE,images.getName()+ExamConstants.JPEG_IMAGE_EXTENSION);
-				return VIEW_NAME;
 			}
 			
 

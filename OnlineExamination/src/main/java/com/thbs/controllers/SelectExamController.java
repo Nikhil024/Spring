@@ -80,24 +80,26 @@ public class SelectExamController {
 					images.setName(i.getName());
 					images.setLocation(i.getLocation());
 					images.setUploadDate(i.getUploadDate());
+					images.setPiechart(i.getPiechart());
+					images.setProfilepicture(i.getProfilepicture());
 					images.setLastupdateDate(i.getLastupdateDate());
 				}
+			}
+			
+			if(images.getProfilepicture() == null){
+				model.addAttribute(NO_PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
+				model.addAttribute(USER_PROFILE_PICTURE,ExamConstants.FIRST_TIME_PROFILE_AND_NO_PROFILE_PICTURE); 
+			}
+			else{
+				model.addAttribute(PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
+				model.addAttribute(USER_PROFILE_PICTURE,images.getName()+ExamConstants.JPEG_IMAGE_EXTENSION);
 			}
 			
 			if(session.getAttribute(CURRENT_PAGE_SESSION_NAME)!=null){
 			if(session.getAttribute(CURRENT_PAGE_SESSION_NAME).equals(LOCK_SCREEN_VIEW_NAME)){
 				model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,ExamConstants.SCREEN_LOCKED_MESSAGE);
 				model.addAttribute(FAIL_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
-				if(images.getName() == null){
-					model.addAttribute(NO_PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
-					model.addAttribute(USER_PROFILE_PICTURE,ExamConstants.FIRST_TIME_PROFILE_AND_NO_PROFILE_PICTURE); 
-					return LOCK_SCREEN_VIEW_NAME;
-				}
-				else{
-					model.addAttribute(PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
-					model.addAttribute(USER_PROFILE_PICTURE,images.getName()+ExamConstants.JPEG_IMAGE_EXTENSION);
-					return LOCK_SCREEN_VIEW_NAME;
-				}
+				
 			}
 			}
 			session.setAttribute(CURRENT_PAGE_SESSION_NAME, VIEW_NAME);

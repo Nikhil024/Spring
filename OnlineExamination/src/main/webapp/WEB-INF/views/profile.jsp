@@ -9,6 +9,7 @@
 <head>
 <title>Profile</title>
 <jsp:include page="Header.jsp" />
+
 <!--  Plugin for Date Time Picker and Full Calendar Plugin-->
 	<script src="<spring:url value="/resources/js/moment.min.js"/>"></script>
 

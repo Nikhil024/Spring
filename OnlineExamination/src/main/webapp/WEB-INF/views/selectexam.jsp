@@ -5,63 +5,68 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<jsp:include page="Header.jsp"/>
+<jsp:include page="Header.jsp" />
 </head>
 <body>
 
-<div class="wrapper">
-    <div class="sidebar" data-color="orange" data-image="<spring:url value="/resources/img/${bgimagename}"/>">
-        <!--
+	<div class="wrapper">
+		<div class="sidebar" data-color="orange"
+			data-image="<spring:url value="/resources/img/${bgimagename}"/>">
+			<!--
 
             Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
             Tip 2: you can also add an image using data-image tag
 
         -->
 
-    	<div class="sidebar-wrapper">
-            <jsp:include page="sidebar.jsp"></jsp:include> 
-    	</div>
-    </div>
-    <div class="main-panel">
-	<div class="col-md-6">
-		<legend>Select Subject</legend>
-		<div class="row">
+			<div class="sidebar-wrapper">
+				<jsp:include page="sidebar.jsp"></jsp:include>
+			</div>
+		</div>
+		<div class="main-panel">
 			<div class="col-md-6">
-				<select name="cities" class="selectpicker"
-					data-title="Single Select" data-style="btn-default btn-block"
-					data-menu-style="dropdown-blue">
-					<option value="id">Bahasa Indonesia</option>
-					<option value="ms">Bahasa Melayu</option>
-					<option value="ca">Català</option>
-					<option value="da">Dansk</option>
-					<option value="de">Deutsch</option>
-					<option value="en">English</option>
-					<option value="es">Español</option>
-					<option value="el">Eλληνικά</option>
-					<option value="fr">Français</option>
-					<option value="it">Italiano</option>
-					<option value="hu">Magyar</option>
-					<option value="nl">Nederlands</option>
-					<option value="no">Norsk</option>
-					<option value="pl">Polski</option>
-					<option value="pt">Português</option>
-					<option value="fi">Suomi</option>
-					<option value="sv">Svenska</option>
-					<option value="tr">Türkçe</option>
-					<option value="is">Íslenska</option>
-					<option value="cs">Čeština</option>
-					<option value="ru">Русский</option>
-					<option value="th">ภาษาไทย</option>
-					<option value="zh">中文 (简体)</option>
-					<option value="zh-TW">中文 (繁體)</option>
-					<option value="ja">日本語</option>
-					<option value="ko">한국어</option>
-				</select>
+				<legend>Select Subject</legend>
+				<div class="row">
+					<div class="col-md-6">
+						<select multiple data-title="Select Subjects" name="currency"
+							class="selectpicker" data-style="btn-info btn-fill btn-block"
+							data-menu-style="dropdown-blue">
+							<option value="ARS">ARS</option>
+							<option value="AUD">AUD</option>
+							<option value="BRL">BRL</option>
+							<option value="CAD">CAD</option>
+							<option value="CHF">CHF</option>
+							<option value="CNY">CNY</option>
+							<option value="CZK">CZK</option>
+							<option value="DKK">DKK</option>
+							<option value="EUR">EUR</option>
+							<option value="GBP">GBP</option>
+							<option value="HKD">HKD</option>
+							<option value="HUF">HUF</option>
+							<option value="IDR">IDR</option>
+							<option value="ILS">ILS</option>
+							<option value="INR">INR</option>
+							<option value="JPY">JPY</option>
+							<option value="KRW">KRW</option>
+							<option value="MYR">MYR</option>
+							<option value="MXN">MXN</option>
+							<option value="NOK">NOK</option>
+							<option value="NZD">NZD</option>
+							<option value="PHP">PHP</option>
+							<option value="PLN">PLN</option>
+							<option value="RUB">RUB</option>
+							<option value="SEK">SEK</option>
+							<option value="SGD">SGD</option>
+							<option value="TWD">TWD</option>
+							<option value="USD">USD</option>
+							<option value="VND">VND</option>
+							<option value="ZAR">ZAR</option>
+						</select>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-</div>
 
 
 </body>

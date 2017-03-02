@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.thbs.Beans.UserDetailsBean;
 import com.thbs.Beans.UsersBean;
 import com.thbs.Dao.EmailLinkEncryptionDao;
+import com.thbs.Dao.UserDetailsDao;
 import com.thbs.Dao.UsersDao;
 import com.thbs.data.ExamConstants;
 import com.thbs.data.GetBeanContext;
@@ -25,6 +27,7 @@ public class LoginController {
 	private static final Logger log = LoggerFactory.getLogger(LoginController.class);
 	GetBeanContext gbc = new GetBeanContext();
 	UsersDao userdao = gbc.getUserBeanContext();
+	UserDetailsDao userdetailsdao = gbc.getuserDetailsBeanContext();
 	private final String PROJECT_NAME = "projectname";
 	private final String BACKGROUND_IMAGE_NAME = "bgimagename";
 	private final String MESSAGE_MODEL_ATTRIBUTE = "data";
@@ -35,6 +38,7 @@ public class LoginController {
 	private final String REDIRECT_VALUE = "redirectValue";
 	private final String VIEW_NAME = "login";
 	private final String SUCCESS_VIEW_NAME = "profile";
+	private final String DASHBOARD_SUCCESS_VIEW_NAME = "dashboard";
 	private final String REGISTER_COMPONENT_VIEW = "registerComponentView";
 	private final String SESSSION_EMAIL_NAME = "email";
 	private final String CURRENT_PAGE_SESSION_NAME = "currentpage";
@@ -97,6 +101,8 @@ public class LoginController {
 									userdao.updateUserColumn(ExamConstants.UPDATE_USER_SUBSCRIBED, u.getId());
 								}
 							}
+							List<UserDetailsBean> ud = userdetailsdao.getAllUserDetails(u.getId());
+							if(ud.isEmpty()){
 							model.addAttribute(SUCCESS_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
 							model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,"Hi "+u.getName()+", "+ExamConstants.STUDENT_LOGIN_SUCCESSFULL);
 							session.setAttribute(SESSSION_EMAIL_NAME, u.getEmail());
@@ -106,6 +112,18 @@ public class LoginController {
 							model.addAttribute(REDIRECT_VALUE,SUCCESS_VIEW_NAME);
 							session.setAttribute(CURRENT_PAGE_SESSION_NAME,VIEW_NAME);
 							return VIEW_NAME;
+							}
+							else{
+								model.addAttribute(SUCCESS_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
+								model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,"Hi "+u.getName()+", "+ExamConstants.STUDENT_LOGIN_SUCCESSFULL);
+								session.setAttribute(SESSSION_EMAIL_NAME, u.getEmail());
+								log.info("Session variable in login : "+session.getAttribute(SESSSION_EMAIL_NAME));
+								model.addAttribute(REDIRECT,ExamConstants.REDIRECT_VALUE);
+								model.addAttribute(EMAIL_VALUE,email);
+								model.addAttribute(REDIRECT_VALUE,DASHBOARD_SUCCESS_VIEW_NAME);
+								session.setAttribute(CURRENT_PAGE_SESSION_NAME,DASHBOARD_SUCCESS_VIEW_NAME);
+								return VIEW_NAME;
+							}
 
 						}
 						else{

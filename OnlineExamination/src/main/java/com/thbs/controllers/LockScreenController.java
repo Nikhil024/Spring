@@ -1,7 +1,6 @@
 package com.thbs.controllers;
 
 import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.thbs.Beans.ImagesBean;
-import com.thbs.Beans.UserDetailsBean;
 import com.thbs.Beans.UsersBean;
 import com.thbs.Dao.ImagesDao;
 import com.thbs.Dao.UsersDao;
@@ -95,5 +93,14 @@ public class LockScreenController {
 		
 		return VIEW_NAME;
 	}
+	
+	@RequestMapping(value = "/lockscreen",method = RequestMethod.POST)
+	public String postLockscreen(){
+		
+		return "VIEW_NAME";
+	}
+	
+	
+	
 	
 }

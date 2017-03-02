@@ -136,6 +136,7 @@ public class UploadController {
 					images.setName(users.getName());
 					images.setLocation(image_in_file_system.getAbsolutePath());
 					images.setUploadDate(CurrentDate.getCurrentDate());
+					images.setProfilepicture(ExamConstants.AFTER_VERIFICATION_VALUE);
 					if(imgb.isEmpty()){
 						imagesdao.insertImage(images);
 					}

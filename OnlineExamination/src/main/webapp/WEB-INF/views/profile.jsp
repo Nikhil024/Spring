@@ -142,12 +142,12 @@
 											</div>
 											
 											<div class="col-md-4">
-								
-								<div class="form-group">
-								<label>Date Of Birth</label> 
-									<input type="text" class="form-control datepicker" placeholder="Date Picker Here"/>
-								</div>
-										</div>
+													<div class="form-group">
+													<label>Date Of Birth</label> 
+														<input type="text" class="form-control datepicker"
+															placeholder="Date Picker Here" />
+													</div>
+											</div>
 										</div>
 
 										<div class="row">

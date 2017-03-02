@@ -36,7 +36,7 @@ private static final Logger log = LoggerFactory.getLogger(ImagesDao.class);
 
 	@Override
 	public int insertImage(ImagesBean i) {
-		int count = jdbcTemplateObject.update(ExamConstants.INSERT_IMAGE_QUERY,i.getId(),i.getName(),i.getLocation(),i.getUploadDate());
+		int count = jdbcTemplateObject.update(ExamConstants.INSERT_IMAGE_QUERY,i.getId(),i.getName(),i.getLocation(),i.getPiechart(),i.getProfilepicture(),i.getUploadDate());
 		if(count==1){
 			log.info("Query to insert data "+ExamConstants.INSERT_IMAGE_QUERY);
 			log.info("Successfully inserted data with name "+i.getName());

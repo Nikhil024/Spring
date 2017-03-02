@@ -2,7 +2,6 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -142,7 +141,7 @@
         <div class="content">
             <div class="container-fluid">
 
-                <div class="row">
+            <!--     <div class="row">
                     <div class="col-md-12">
                         <div class="card ">
                             <div class="header">
@@ -248,19 +247,24 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
 
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Email Statistics</h4>
                                 <p class="category">Last Campaign Performance</p>
                             </div>
                             <div class="content">
-                               <img src="<spring:url value="/images/pieChart/nikhil.jpg"/>" width="387" height="400"/>
+                            <c:if test="${piechartpictureexists == 'YES'}">
+                               <img src="<spring:url value="/images/pieChart/${piechartname}"/>" width="387" height="400"/>
+                               </c:if>
+                                <c:if test="${piechartpictureexists == 'NO'}">
+                                 <h4>Please take Exams to check your statistics.</h4>
+                                </c:if>
                             </div>
                             <div class="footer">
                                 <div class="legend">
@@ -277,7 +281,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-8">
+                    <!-- <div class="col-md-8">
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Users Behavior</h4>
@@ -298,13 +302,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
 
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                         <div class="card ">
                             <div class="header">
                                 <h4 class="title">2014 Sales</h4>
@@ -324,9 +328,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-md-6">
+                   <!--  <div class="col-md-6">
                         <div class="card ">
                             <div class="header">
                                 <h4 class="title">Tasks</h4>
@@ -445,7 +449,7 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
 

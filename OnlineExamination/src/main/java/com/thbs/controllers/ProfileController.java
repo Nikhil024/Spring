@@ -76,23 +76,12 @@ public class ProfileController {
 		
 		model.addAttribute(PROJECT_NAME,ExamConstants.PROJECT_NAME);
 		model.addAttribute(BACKGROUND_IMAGE_NAME,ExamConstants.BACKGROUND_IMAGE);
-		
-		
-		
-		
-		
-		
-		
 
 		if(session.getAttribute(SESSION_AND_MODEL_EMAIL_VARIABLE)==null){
 			model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,ExamConstants.NO_LOGIN_MESSAGE+" To Access The Profile Page.!");
 			model.addAttribute(FAIL_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
 			return NO_LOGIN_VIEW_NAME;
 		}
-		
-		
-		
-
 
 		if(session.getAttribute(SESSION_AND_MODEL_EMAIL_VARIABLE)!=null){
 			List<UsersBean> users = userdao.getUserDetails(session.getAttribute(SESSION_AND_MODEL_EMAIL_VARIABLE).toString());

@@ -62,6 +62,9 @@ public final class ExamConstants {
 	public final static String SELECT_USER_DETAILS = PropertiesfileReading.getProperty("SelectUserDetails");
 	public final static String LOCK_SCREEN_IMAGE_NAME = PropertiesfileReading.getProperty("LockScreenImageName");
 	public final static String SCREEN_LOCKED_MESSAGE = PropertiesfileReading.getProperty("ScreenLockedMessage");
+	public final static String SELECT_ALL_SUBJECTS = PropertiesfileReading.getProperty("SelectAllSubjects");
+	public final static String INSERT_SUBJECTS = PropertiesfileReading.getProperty("InsertSubjects");
+	
 	public static String UPDATE_USER_DETAILS = PropertiesfileReading.getProperty("UpdateUserDetails");
 	public static String NO_DATA = PropertiesfileReading.getProperty("NoData");
 	public static String EMAIL_VERIFICATION_ALREADY_DONE = PropertiesfileReading.getProperty("EmailVerificationAlreadyDone");

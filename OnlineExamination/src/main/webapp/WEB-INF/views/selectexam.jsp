@@ -24,50 +24,47 @@
 			</div>
 		</div>
 		<div class="main-panel">
-			<div class="col-md-6">
+			<div class="content">
+				<div class="container-fluid">
+					<div class="card">
+						<%-- <div class="col-md-6">
 				<legend>Select Subject</legend>
 				<div class="row">
 					<div class="col-md-6">
 						<select multiple data-title="Select Subjects" name="currency"
 							class="selectpicker" data-style="btn-info btn-fill btn-block"
 							data-menu-style="dropdown-blue">
-							<option value="ARS">ARS</option>
-							<option value="AUD">AUD</option>
-							<option value="BRL">BRL</option>
-							<option value="CAD">CAD</option>
-							<option value="CHF">CHF</option>
-							<option value="CNY">CNY</option>
-							<option value="CZK">CZK</option>
-							<option value="DKK">DKK</option>
-							<option value="EUR">EUR</option>
-							<option value="GBP">GBP</option>
-							<option value="HKD">HKD</option>
-							<option value="HUF">HUF</option>
-							<option value="IDR">IDR</option>
-							<option value="ILS">ILS</option>
-							<option value="INR">INR</option>
-							<option value="JPY">JPY</option>
-							<option value="KRW">KRW</option>
-							<option value="MYR">MYR</option>
-							<option value="MXN">MXN</option>
-							<option value="NOK">NOK</option>
-							<option value="NZD">NZD</option>
-							<option value="PHP">PHP</option>
-							<option value="PLN">PLN</option>
-							<option value="RUB">RUB</option>
-							<option value="SEK">SEK</option>
-							<option value="SGD">SGD</option>
-							<option value="TWD">TWD</option>
-							<option value="USD">USD</option>
-							<option value="VND">VND</option>
-							<option value="ZAR">ZAR</option>
+							<c:forEach var = "sub" items = "${subjects}">
+							<option value="${sub.id}">${sub.name}</option>
+							</c:forEach>
 						</select>
+					</div>
+				</div>
+			</div> --%>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="header">
+									<h4 class="title">Select Subject</h4>
+									<p class="category">Select Multiple Subjects also</p>
+								</div>
+								<div class="content">
+									<select multiple data-title="Select Subjects" name="currency"
+										class="selectpicker" data-style="btn-info btn-fill btn-block"
+										data-menu-style="dropdown-blue">
+										<c:forEach var="sub" items="${subjects}">
+											<option value="${sub.id}">${sub.name}</option>
+										</c:forEach>
+									</select>
+
+								</div>
+
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 
 </body>
 </html>

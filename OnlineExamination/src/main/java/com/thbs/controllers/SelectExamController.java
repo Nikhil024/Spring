@@ -4,16 +4,21 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.thbs.Beans.ImagesBean;
+import com.thbs.Beans.SubjectsBean;
 import com.thbs.Beans.UserDetailsBean;
 import com.thbs.Beans.UsersBean;
 import com.thbs.Dao.ImagesDao;
+import com.thbs.Dao.SubjectsDao;
 import com.thbs.Dao.UserDetailsDao;
 import com.thbs.Dao.UsersDao;
 import com.thbs.data.ExamConstants;
@@ -21,6 +26,7 @@ import com.thbs.data.GetBeanContext;
 
 @Controller
 public class SelectExamController {
+	private static final Logger log = LoggerFactory.getLogger(SelectExamController.class);
 	
 	@Autowired
 	UsersBean user;
@@ -36,6 +42,8 @@ public class SelectExamController {
 	UsersDao userdao = gbc.getUserBeanContext();
 	ImagesDao imagesdao = gbc.getImagesBeanContext();
 	UserDetailsDao userdetailsdao = gbc.getuserDetailsBeanContext();
+	SubjectsDao subjectsdao = gbc.getSubjectsBeanContext();
+	
 	private final String VIEW_NAME = "selectexam"; 
 	private final String PROJECT_NAME = "projectname";
 	private final String BACKGROUND_IMAGE_NAME = "bgimagename";
@@ -49,9 +57,10 @@ public class SelectExamController {
 	private final String NO_PICTURE = "nopicture";
 	private final String PICTURE = "picture";
 	private final String USER_PROFILE_PICTURE = "userprofileimage";
+	 ModelAndView modelAndView = new ModelAndView(VIEW_NAME);
 
 	@RequestMapping(value = "/selectexam",method = RequestMethod.GET)
-	public String getExam(Model model,HttpSession session){
+	public ModelAndView getExam(Model model,HttpSession session){
 		model.addAttribute(PROJECT_NAME,ExamConstants.PROJECT_NAME);
 		model.addAttribute(BACKGROUND_IMAGE_NAME,ExamConstants.BACKGROUND_IMAGE);
 		
@@ -60,7 +69,7 @@ public class SelectExamController {
 		if(session.getAttribute(SESSION_AND_MODEL_EMAIL_VARIABLE)==null){
 			model.addAttribute(MESSAGE_MODEL_ATTRIBUTE,ExamConstants.NO_LOGIN_MESSAGE+" To Access The Profile Page.!");
 			model.addAttribute(FAIL_MODEL_ATTRIBUTE,ExamConstants.PAGE_DISPLAY_VALUE);
-			return NO_LOGIN_VIEW_NAME;
+			return new ModelAndView(NO_LOGIN_VIEW_NAME);//NO_LOGIN_VIEW_NAME;
 		}
 		
 		
@@ -104,10 +113,17 @@ public class SelectExamController {
 			}
 			session.setAttribute(CURRENT_PAGE_SESSION_NAME, VIEW_NAME);
 		
+			
+			
+			
 		model.addAttribute(USER_NAME,user.getName()); 
+		List<SubjectsBean> subjects = subjectsdao.getAllSubjects();
+		 modelAndView.addObject("subjects",subjects);
+		 return modelAndView;
 		}
 		
-		return VIEW_NAME;
+		
+		return modelAndView;
 	}
 	
 	

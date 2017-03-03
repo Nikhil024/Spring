@@ -12,7 +12,9 @@
 
 
 			<div class="sidebar-wrapper">
-
+	<div class="logo">
+				<a href="<spring:url value="/"/>" class="logo-text">${projectname}</a>
+			</div>
 				<div class="user">
 					<a href="<spring:url value="/upload"/>">
 						<div class="photo animated tada">

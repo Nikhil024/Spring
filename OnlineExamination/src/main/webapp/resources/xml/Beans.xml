@@ -30,4 +30,8 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
+	<bean id="subjectsDao" class="com.thbs.Dao.SubjectsDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
 </beans>

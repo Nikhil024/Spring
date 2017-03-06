@@ -101,7 +101,7 @@ public class SelectExamController {
 			}
 			else{
 				model.addAttribute(PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
-				model.addAttribute(USER_PROFILE_PICTURE,images.getName()+ExamConstants.JPEG_IMAGE_EXTENSION);
+				model.addAttribute(USER_PROFILE_PICTURE,images.getId()+ExamConstants.JPEG_IMAGE_EXTENSION);
 			}
 			
 			if(session.getAttribute(CURRENT_PAGE_SESSION_NAME)!=null){

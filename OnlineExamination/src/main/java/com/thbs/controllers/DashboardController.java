@@ -110,7 +110,7 @@ public class DashboardController {
 			}
 			else{
 				model.addAttribute(PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
-				model.addAttribute(USER_PROFILE_PICTURE,images.getName()+ExamConstants.JPEG_IMAGE_EXTENSION);
+				model.addAttribute(USER_PROFILE_PICTURE,images.getId()+ExamConstants.JPEG_IMAGE_EXTENSION);
 			}
 		 
 		 if(session.getAttribute(CURRENT_PAGE_SESSION_NAME)!=null){
@@ -123,8 +123,7 @@ public class DashboardController {
 			
 			session.setAttribute(CURRENT_PAGE_SESSION_NAME, VIEW_NAME);
 		 
-			
-			
+			model.addAttribute("upload_include_page",VIEW_NAME);
 			
 			
 			
@@ -134,7 +133,7 @@ public class DashboardController {
 			}
 			else{
 				model.addAttribute(PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
-				model.addAttribute(USER_PROFILE_PICTURE,images.getName()+ExamConstants.JPEG_IMAGE_EXTENSION);
+				model.addAttribute(USER_PROFILE_PICTURE,images.getId()+ExamConstants.JPEG_IMAGE_EXTENSION);
 			}
 		}
 		

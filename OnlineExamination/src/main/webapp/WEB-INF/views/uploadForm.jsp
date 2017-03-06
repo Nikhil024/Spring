@@ -50,7 +50,7 @@
 								</button>
 							</p>
 							
-							<a href ="<spring:url value="/profile"/>">
+							<a href ="<spring:url value="${upload_include_page}"/>">
 							<p style="margin-right: -254px;margin-bottom: 55px;margin-top: -92px;">
 								<button type="button" class="btn btn-wd btn-danger">
 									<span class="btn-label"><i class="fa fa-times"></i></span>

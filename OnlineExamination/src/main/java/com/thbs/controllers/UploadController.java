@@ -53,6 +53,7 @@ public class UploadController {
 	private final String MESSAGE_MODEL_ATTRIBUTE = "data";
 	private final String FAIL_MODEL_ATTRIBUTE = "fail";
 	private final String NO_LOGIN_VIEW_NAME = "login";
+	private final String CURRENT_PAGE_SESSION_NAME = "currentpage";
 	GetBeanContext gc = new GetBeanContext();
 	UsersDao usersdao = gc.getUserBeanContext();
 	ImagesDao imagesdao = gc.getImagesBeanContext();
@@ -60,7 +61,11 @@ public class UploadController {
 
 	@RequestMapping(value = "/upload", method = RequestMethod.GET)
 	public String getUploadForm(Model model,HttpSession session){
+		String PAGE_NAME = session.getAttribute(CURRENT_PAGE_SESSION_NAME).toString();
+		model.addAttribute(UPLOAD_INCLUDE_PAGE,PAGE_NAME);
+		if(PAGE_NAME == null){
 		model.addAttribute(UPLOAD_INCLUDE_PAGE,UPLOAD_INCLUDE_PAGE_NAME);
+		}
 		
 		
 		if(session.getAttribute(SESSSION_EMAIL_NAME)==null){
@@ -99,7 +104,7 @@ public class UploadController {
 		}
 		else{
 			model.addAttribute(PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
-			model.addAttribute(USER_PROFILE_PICTURE,images.getName()+ExamConstants.JPEG_IMAGE_EXTENSION);
+			model.addAttribute(USER_PROFILE_PICTURE,images.getId()+ExamConstants.JPEG_IMAGE_EXTENSION);
 			return VIEW_NAME;
 		}
 	}
@@ -109,7 +114,7 @@ public class UploadController {
 	public String handleFormUpload(Model model, 
 			@RequestParam("file") MultipartFile file,HttpSession session,HttpServletRequest request) throws IOException{
 
-
+		
 
 
 		if(session.getAttribute(SESSSION_EMAIL_NAME)!=null){
@@ -128,6 +133,14 @@ public class UploadController {
 			if (!image_in_file_system.exists()) {
 				image_in_file_system.mkdirs();
 			}
+			
+			
+			String PAGE_NAME = session.getAttribute(CURRENT_PAGE_SESSION_NAME).toString();
+			model.addAttribute(UPLOAD_INCLUDE_PAGE,PAGE_NAME);
+			if(PAGE_NAME == null){
+			model.addAttribute(UPLOAD_INCLUDE_PAGE,UPLOAD_INCLUDE_PAGE_NAME);
+			}
+			
 			String filename = file.getOriginalFilename();
 			log.info("Location of catilana "+image_in_file_system+File.separator+filename);
 			if(filename.contains(".jpg")||filename.contains(".png")||filename.contains(".gif")){
@@ -149,39 +162,39 @@ public class UploadController {
 					try{
 						BufferedImage src = ImageIO.read(new ByteArrayInputStream(file.getBytes()));
 
-						File destination = new File(image_in_file_system+File.separator+users.getName()+ExamConstants.JPEG_IMAGE_EXTENSION); // something like C:/Users/tom/Documents/nameBasedOnSomeId.png
-						log.info("Actual location of file : "+image_in_file_system+File.separator+users.getName()+ExamConstants.JPEG_IMAGE_EXTENSION);
+						File destination = new File(image_in_file_system+File.separator+users.getId()+ExamConstants.JPEG_IMAGE_EXTENSION); // something like C:/Users/tom/Documents/nameBasedOnSomeId.png
+						log.info("Actual location of file : "+image_in_file_system+File.separator+users.getId()+ExamConstants.JPEG_IMAGE_EXTENSION);
 						ImageIO.write(src, "png", destination);
 						//Save the id you have used to create the file name in the DB. You can retrieve the image in future with the ID.
 						if(images.getName() == null){
 							model.addAttribute(NO_PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
 							model.addAttribute(USER_PROFILE_PICTURE,ExamConstants.FIRST_TIME_PROFILE_AND_NO_PROFILE_PICTURE);
 							log.info("NNNN : "+ request.getLocalName());
-							return "redirect:/profile/";
+							return "redirect:/"+PAGE_NAME+"/";
 						}
 						else{
 							model.addAttribute(PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
-							model.addAttribute(USER_PROFILE_PICTURE,images.getName()+ExamConstants.JPEG_IMAGE_EXTENSION);
-							String url = request.getRequestURL().toString();
-							/*url = url.replace("savefile", "profile");
+							model.addAttribute(USER_PROFILE_PICTURE,images.getId()+ExamConstants.JPEG_IMAGE_EXTENSION);
+							/*String url = request.getRequestURL().toString();
+							url = url.replace("savefile", "profile");
 							log.info("URL:: "+url);*/
-							    return "redirect:profile";
+							    return "redirect:"+PAGE_NAME;
 						}
 					}
 					catch(FileNotFoundException fe){
 						log.info("FileNotFoundException : "+fe);
 						log.info("FileNotFoundException : in location : "+image_in_file_system);
 						model.addAttribute("warningmessage","Sorry our servers are facing problems. Please tray again later! ");
-						return "profile";
+						return PAGE_NAME;
 					}
 					
 				}
 			}
 			model.addAttribute("warningmessage","Please Upload a Picture with .jpg,.gif or .png formats. ");
-			return "profile";
+			return PAGE_NAME;
 		}
 		else{
-			return "profile";
+			return NO_LOGIN_VIEW_NAME;
 		}
 	}	
 

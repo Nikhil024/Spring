@@ -11,56 +11,54 @@
 <body>
 
 
-			<div class="sidebar-wrapper">
-	<div class="logo">
-				<a href="<spring:url value="/"/>" class="logo-text">${projectname}</a>
-			</div>
-				<div class="user">
-					<a href="<spring:url value="/upload"/>">
-						<div class="photo animated tada">
+	<div class="sidebar-wrapper">
+		<div class="logo">
+			<a href="<spring:url value="/"/>" class="logo-text">${projectname}</a>
+		</div>
+		<div class="user">
+			<a href="<spring:url value="/upload"/>">
+				<div class="photo animated tada">
 
-							<c:if test="${nopicture == 'YES'}">
-								<img
-									src="<spring:url value="/resources/img/${userprofileimage}"/>" />
-							</c:if>
+					<c:if test="${nopicture == 'YES'}">
+						<img
+							src="<spring:url value="/resources/img/${userprofileimage}"/>" />
+					</c:if>
 
-							<c:if test="${picture == 'YES'}">
-								<img
-									src="<spring:url value="/images/profile/${userprofileimage}"/>" width="100%" height="100%" />
-							</c:if>
+					<c:if test="${picture == 'YES'}">
+						<img
+							src="<spring:url value="/images/profile/${userprofileimage}"/>"
+							width="100%" height="100%" />
+					</c:if>
 
 
 
-						</div>
-					</a>
-					<div class="info">
-						<a data-toggle="collapse" href="#collapseExample"
-							class="collapsed animated tada"> ${username} <b
-							class="caret"></b>
-						</a>
-						 <div class="collapse" id="collapseExample">
-							<ul class="nav">
-								<li><a href="<spring:url value="/profile"/>">My Profile</a></li>
-								<li><a href="<spring:url value="/dashboard"/>">Dashboard</a></li>
-								<li><a href="<spring:url value="/"/>">Settings</a></li>
-							</ul>
-						</div>
-					</div>
 				</div>
+			</a>
+			<div class="info">
+				<a data-toggle="collapse" href="#collapseExample"
+					class="collapsed animated tada"> ${username} <b class="caret"></b>
+				</a>
+				<div class="collapse" id="collapseExample">
+					<ul class="nav">
+						<li><a href="<spring:url value="/profile"/>">My Profile</a></li>
+						<li><a href="<spring:url value="/dashboard"/>">Dashboard</a></li>
+						<li><a href="<spring:url value="/"/>">Settings</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 
-				<ul class="nav">
-					<li><a href="<spring:url value="/dashboard"/>"> <i class="pe-7s-display1"></i>
-							<p>Dashboard</p>
-					</a></li>
-					<li><a href=""><i class="pe-7s-news-paper"></i>
-					<p>Mock Questions</p>
-					</a></li>
-					<li><a href="<spring:url value="/exam"/>"><i class="pe-7s-study"></i>
-					<p>Take Exam</p>
-					
-					</a>
-					</li>
-					<!-- 
+		<ul class="nav">
+			<li><a href="<spring:url value="/dashboard"/>"> <i
+					class="pe-7s-display1"></i>
+					<p>Dashboard</p>
+			</a></li>
+			<li><a href=""><i class="pe-7s-news-paper"></i>
+					<p>Mock Questions</p> </a></li>
+			<li><a href="<spring:url value="/exam"/>"><i
+					class="pe-7s-study"></i>
+					<p>Take Exam</p> </a></li>
+			<!-- 
 					<li><a data-toggle="collapse" href="#componentsExamples">
 							<i class="pe-7s-plugin"></i>
 							<p>
@@ -150,7 +148,7 @@
 							</ul>
 						</div></li>
 				</ul> -->
-			</div> 
+	</div>
 
 </body>
 </html>

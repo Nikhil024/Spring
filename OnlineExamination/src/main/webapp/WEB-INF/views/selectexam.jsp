@@ -27,22 +27,9 @@
 			<div class="content">
 				<div class="container-fluid">
 					<div class="card">
-						<%-- <div class="col-md-6">
-				<legend>Select Subject</legend>
-				<div class="row">
-					<div class="col-md-6">
-						<select multiple data-title="Select Subjects" name="currency"
-							class="selectpicker" data-style="btn-info btn-fill btn-block"
-							data-menu-style="dropdown-blue">
-							<c:forEach var = "sub" items = "${subjects}">
-							<option value="${sub.id}">${sub.name}</option>
-							</c:forEach>
-						</select>
-					</div>
-				</div>
-			</div> --%>
 						<div class="row">
 							<div class="col-md-4">
+
 								<div class="header">
 									<h4 class="title">Select Subject</h4>
 									<p class="category">Select Multiple Subjects also</p>
@@ -60,9 +47,43 @@
 
 							</div>
 						</div>
+						
 					</div>
+					<div class="card">
+					<div class="row">
+					<div class="col-md-4">
+
+								<div class="header">
+									<h4 class="title">Select Subject</h4>
+									<p class="category">Select Multiple Subjects also</p>
+								</div>
+								<div class="content">
+									<select multiple data-title="Select Subjects" name="currency"
+										class="selectpicker" data-style="btn-info btn-fill btn-block"
+										data-menu-style="dropdown-blue">
+										<c:forEach var="sub" items="${subjects}">
+											<option value="${sub.id}">${sub.name}</option>
+										</c:forEach>
+									</select>
+
+								</div>
+
+							</div>
+							</div>
+							</div>
 				</div>
 			</div>
+
+			<form method="post" id="loginform"
+				action="<spring:url value="/login"/>" autocomplete="off">
+				<div class="form-group">
+					<label class="checkbox"> <input type="checkbox"
+						name="subscribe" data-toggle="checkbox" value="YES"> Terms
+						& Conditions
+					</label>
+				</div>
+			</form>
+
 		</div>
 	</div>
 

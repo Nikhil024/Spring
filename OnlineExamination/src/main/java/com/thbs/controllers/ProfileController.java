@@ -116,7 +116,7 @@ public class ProfileController {
 				}
 				else{
 					model.addAttribute(PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
-					model.addAttribute(USER_PROFILE_PICTURE,images.getName()+ExamConstants.JPEG_IMAGE_EXTENSION);
+					model.addAttribute(USER_PROFILE_PICTURE,images.getId()+ExamConstants.JPEG_IMAGE_EXTENSION);
 					return LOCK_SCREEN_VIEW_NAME;
 				}
 			}
@@ -149,7 +149,7 @@ public class ProfileController {
 			}
 			else{
 				model.addAttribute(PICTURE,ExamConstants.AFTER_VERIFICATION_VALUE);
-				model.addAttribute(USER_PROFILE_PICTURE,images.getName()+ExamConstants.JPEG_IMAGE_EXTENSION);
+				model.addAttribute(USER_PROFILE_PICTURE,images.getId()+ExamConstants.JPEG_IMAGE_EXTENSION);
 			}
 			
 
